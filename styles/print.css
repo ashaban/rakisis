@@ -1,0 +1,53 @@
+/*  Information
+------------------------------------------------------------------------------------------------------------------*/
+/*  Styles for Codename MoxBox
+    General print styles for all browsers
+    Created by Mez Hopking
+    14th August 2008, Revised 14th August 2008
+------------------------------------------------------------------------------------------------------------------*/
+
+body {font-family: arial, helvetica, sans-serif; font-size: 11pt;}
+
+li {list-style-type: none;}
+
+img {padding: 2pt; margin: 2pt; border: 1pt solid #000; background-color: #fff;}
+
+#siteTools, #navigation, #subCol, #footer, #filterView, .moxBoxSmlContainer, .moxBoxMedContainer, .close, .closeBox, .feeds, .addFormContainer, .designNavigation, .mbmFetch, .theDesign .zoom, .theDesign .fn-note-edit, .theDesign #fn-area-inner, .theDesign #fn-area-new, .theDesign #addNote, .theDesign #singleUpload, .addComment, .deleteComment, #breadcrumbs li.prevDesign, #breadcrumbs li.nextDesign, #accountNavigation, .addNew, .teamMembers .editDetails, .MBbutton {display: none;}
+#commentListContainer {display: block}
+.project.editable form {display: none}
+.manageProject .tools a {margin: 0 5pt 0 0;}
+ul.projectTools li.signedOff {border: 2px solid #00991d !important; background-color: #85ea98}
+.project.template span.listTitle, #projectList .template span.project {display: block; font-weight: bold;}
+
+.theDesign .fn-note-text {display: block; margin: 10px 0; padding: 0px;}
+.theDesign img {width: 475pt; margin-left: 4pt}
+#commentListContainer .viewNote {display: block; border: 2pt solid #ff5418; padding: 3pt; margin: 0 0 5pt 0;}
+#commentListContainer .viewNote em a {font-style: normal; text-decoration: none; color: #ff5418; font-weight: bold;}
+#commentList li.signOffComment {border: 4pt solid #17a600; color: #17a600; font-weight: bold;}
+#commentList li.deletedComment {border: 2pt solid #db2424}
+
+#breadcrumbs li {display: inline;}
+
+#pageHelper {border: 2pt dashed #ffba00; padding: 0 10pt; background-color: #ffe13e; margin: 0 0 10pt 0;}
+#pageError {border: 2pt dashed #db2424; padding: 0 10pt; background-color: #f8adad; margin: 0 0 10pt 0;}
+
+#contextualBoxContainer,
+.migrationGraceNotice {border: 1pt solid #000; padding: 0 10pt; margin: 0 0 10pt 0;}
+
+#customiseStylesheet_scr, #customiseStylesheet_ie, #customiseStylesheet_ie7, #customiseStylesheet_prnt {width: 100%; margin: 0 0 10pt 0;}
+.stepInactive {font-size: 60%; margin: 0 5pt}
+.stepActive {margin: 0 5pt}
+
+.teamMembers span.label, .teamMembers span.name, .teamMembers span.userType {font-weight: bold}
+
+#mainCol {border: 2pt solid #000; padding: 0 10pt; margin: 0 0 10pt 0;}
+#slideshow #mainCol {border: none !important;}
+#slideshow .designImage {border: none !important;}
+#mainCol .smallCrumb {margin: 0 0 0 10pt;}
+#mainCol h2 {border-bottom: 1pt solid #000;}
+#mainCol h2 a {text-decoration: none; color: #000; }
+#mainCol h2 .subHeader {margin: 0 0 0 8pt; font-size: 70%;}
+#mainCol ul {margin: 0px; padding: 0px}
+#mainCol li {padding: 5pt; margin-bottom: 5pt; border: 1pt solid #999;}
+#mainCol li.even {background-color: #eaeaea}
+#mainCol li.last {display: none;}

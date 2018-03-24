@@ -1,0 +1,20 @@
+<ul id="nav" class="dropdown dropdown-horizontal">
+	<li id="n-home"><a href="frontpage.php">Dashboard</a></li>
+	
+
+	<li id="n-news"><a href="#" class="dir">Registration</a>
+		<ul>
+			<li class="first"><a href="registerStudents.php"><strong>Register Students</strong></a></li>
+			<li><a href="registerCourses.php">Register Staffs</a></li>						
+		</ul>
+	</li>
+
+	<li id="n-news"><a href="#" class="dir">Reports</a>
+		<ul>
+			<li class="first"><a href="studentsWithDebts.php">Students With Debts</a></li>
+			<li><a href="viewExpenses.php">Expenses</a></li>
+			<li><a href="yearFees.php">Collected/Not Collected Fees</a></li>
+		</ul>
+	</li>
+	
+</ul>

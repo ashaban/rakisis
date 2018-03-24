@@ -1,0 +1,1004 @@
+    
+/*  Information
+------------------------------------------------------------------------------------------------------------------*/
+/*  Styles for Codename MoxBox
+    General styles for all browsers
+    Created by Mez Hopking
+    25th January 2008, Revised 14th October 2008
+------------------------------------------------------------------------------------------------------------------*/
+
+
+/*  Basic style guide information - Explains the parent classes / IDs only. For more customisation, you're on your 
+	own :)
+------------------------------------------------------------------------------------------------------------------
+
+	#clientSide - (as the body: body#clientSide) affects all client side styles.
+	
+	#container - holds all elements (apart from the pop-up dialog boxes).
+	
+	#masthead - controls the top block / header (where the site tools and the logo sit).
+	
+	#siteTools - controls the site tools (logout | help | etc).
+	
+	#logo - holds the logo, which is based on a H1 with a class of hideText.
+	
+	#content - holds all the pages' content (not including footer and dialog boxes)
+	
+	#contextualBoxContainer - holds #contextualBox, #breadcrumbs and #filterView (status messages, location on site and project filtration respectively)
+	
+	#mainCol - is the main large column on the left. When this div has the class .withSubCol attached to it the main col will be the size to accomodate the sub column (project navigation). With the class of .fullWidth attached, the the mainCol will cover the whole page (as in the single project view).
+	
+	.section.projectThumbs - is the container that holds the project thumnail view (as in the client dashboard view), with .section being the general site wide style that controls the various sections.
+	
+	ul#projectList - controls the list of project thumbnails (the client dashboard view).
+	
+	ul#projectTools - is a the list that conrols the newComments / newViews / history / delete / signedOff icons. It's nested inside the prvious ID.
+	
+	#subCol - is the containing div for the right hand side sub column. It holds the project navigation.
+	
+	.section#subNavigation - holds the sub navigation (project nav) UL.
+	
+	#footer - is the containing div that holds the footer UL. */
+
+
+/*  Foundation layout & reset styles
+------------------------------------------------------------------------------------------------------------------*/
+
+* html, p, h1, h2, h3, h4, h5, h6, ul, ol, li, blocckquote, td, tr, table, div, dd, dt, a, input, text, button, form, span {margin: 0px; padding: 0px;}
+a {text-decoration: none;}
+li {list-style: none;}
+
+body {margin: 0 auto; text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: .9em; line-height: 1.2em; color: #4f4f4f; background: none #4f4f4f top center repeat-y;}
+#container {margin: 0px auto; padding: 0px; position: relative; width: 960px; background-color: #fff;}
+
+
+/*  Header Specific
+------------------------------------------------------------------------------------------------------------------*/
+
+#masthead {width: 960px; min-height: 119px; background: url(../../images/layout/bgMasthead.png) top left no-repeat; position: relative; float: left; padding: 0 0 14px 0;}
+
+#clientSide #masthead {background-image: url(../../images/layout/bgMastheadClient.png);}
+
+#logo {height: 48px; width: 160px; background: url(../../images/layout/logo.png) top left no-repeat !important;  background-image: url(../../images/layout/logo.gif); position: absolute; top: 12px; left: 105px;}
+.hideText {text-indent: -100000px;}
+
+#siteTools {float: right; position: relative; margin-right: 115px; margin-top: -1px; padding-left: 0px}
+#siteTools li.first {background: url(../../images/layout/bgSitetoolsL.png) bottom left no-repeat; padding: 4px 2px 10px 15px}
+#siteTools li.last {background: url(../../images/layout/bgSitetoolsR.png) bottom right no-repeat; padding: 4px 15px 10px 0px}
+#siteTools li {background: url(../../images/layout/bgSitetoolsM.png) bottom right repeat-x; padding: 4px 5px 10px 5px; float: left}
+#siteTools ul {position: relative; float: right; margin-right: -6px; margin-left: 6px; padding: 2px 5px 5px 5px;}
+#siteTools li {display: inline; font-size: 80%; color: #4f4f4f; padding-left: 8px; margin: 0 0 0 -5px}
+#siteTools li a {text-decoration: none; color: #676767; border-right: 1px solid #4f4f4f; padding: 0 10px 0 0;}
+#siteTools a.last {border-right: 0px !important; padding-right: 0px; padding-left: 5px;}
+#siteTools li a:hover {color: #ff0000;}
+
+#siteTools .edit {font-size: 100%; padding: 0 8px 0 3px;}
+#siteTools a.edit {font-size: 100%; padding: 0 5px 0 3px; color: #48addf; font-weight: bold;}
+
+#clientSide #siteTools ul {}
+#clientSide #siteTools {}
+#clientSide #siteTools li a {text-decoration: none; color: #676767; border-right: 1px solid #4f4f4f; padding-right: 8px;}
+#clientSide #siteTools .edit {font-size: 90%; padding: 0 8px 0 3px;}
+#clientSide #siteTools a.edit {font-size: 90%; padding: 0 8px 0 3px; color: #48addf;}
+#clientSide #subCol .section {padding-bottom: 10px}
+
+#navigation {position: absolute; top: 78px; left: 223px;}
+#navigation ul {}
+#navigation li {display: inline; border-left: 1px solid #ababab; padding: 0 25px; font-weight: 500;}
+#navigation li a {text-decoration: none; color: #c9c9c9;}
+#navigation li a:hover {color: #fff;}
+#navigation .current {color: #fff;}
+#navigation .current a {color: #fff;}
+#navigation .last {border-right: 1px solid #ababab;}
+
+
+/*  Login and Landing Specific
+------------------------------------------------------------------------------------------------------------------*/
+
+body#login, body#landing {background-image: none; background-color: #fff; width: 470px;}
+#login #container, #landing #container {width: 470px;}
+#login #content, #landing #container {width: 470px; margin-top: 40px;}
+
+#login #siteAddress {background-color: #eee; border-top: 2px solid #48addf; border-bottom: 2px solid #48addf; margin: 10px 0; padding: 8px 0px;}
+#login #siteAddress p {font-size: 85%; padding: 0 0 5px 0;}
+#login #siteAddress h3 {font-size: 90%; color: #000; padding: 0 0 2px 0;}
+#loginBox #siteAddress label {font-weight: bold; color: #e27500;}
+#loginBox #siteAddress .textFieldSml {width: 145px;}
+
+#login p.lostDetails {text-align: center; width: 100%; font-size: 80%; float: left;}
+#login p.lostDetails a {color: #db2424;}
+#login p.lostDetails a:hover {color: #48addf;}
+
+#loginError {width: 470px; float: left; position: relative; background: url(../../images/layout/bgLoginErrorTop.png) top left no-repeat; padding: 15px 20px 5px 0; margin: 0 0 37px 0;}
+#loginError .close {width: 470px; height: 17px; background: url(../../images/layout/bgLoginErrorBot.png) bottom left no-repeat; margin: 0 0 -22px 0;}
+#loginError p {padding: 0px 20px 0 55px; font-size: 85%;}
+
+#loginSuccess {width: 470px; float: left; position: relative; background: url(../../images/layout/bgLoginSuccessTop.png) top left no-repeat; padding: 15px 20px 5px 0; margin: 0 0 37px 0;}
+#loginSuccess .close {width: 470px; height: 17px; background: url(../../images/layout/bgLoginSuccessBot.png) bottom left no-repeat; margin: 0 0 -22px 0;}
+#loginSuccess p {padding: 5px 20px 5px 55px; font-size: 85%;}
+
+#loginBox {width: 470px; position: relative; float: left; background: url(../images/bgLoginBoxTop.png) top left no-repeat; text-align: center; padding: 22px 0 0 0; margin: 0 0 10px 0;}
+
+#landingBox {width: 310px; position: relative; float: left; background: url(../images/bgLandingTop.png) top left no-repeat; text-align: left; padding: 60px 80px 0 80px; margin: 0 0 10px 0;}
+#landingBox .close {width: 470px; height: 76px; position: relative; float: left; background: url(../images/bgLandingBot.png) bottom left no-repeat; margin: 0 0 -60px -80px;}
+#landingBox .logo {margin: 0 0 30px 0;}
+
+#loginBox form {padding: 0 75px; text-align: left;}
+#loginBox .close {width: 470px; height: 79px; position: relative; float: left; background: url(../images/bgLoginBoxBot.png) bottom left no-repeat;}
+#loginBox h2 {color: #fff; font-size: 90%}
+#loginBox img {margin: 40px 0 0 0;}
+
+
+#loginBox .textFieldLogin {width: 308px; margin: 1px 0 10px 0;}
+#landingBox .textFieldLogin {width: 308px; margin: 1px 0 10px 0;}
+
+#loginBox #loginPass {margin: 0 0 30px 0;}
+#loginBox label, #landingBox label {font-size: 90%;}
+
+#landingBox ul {clear: both; padding: 10px 0 0px 0;}
+#landingBox li.headscapeProduct {font-size: 90%; font-weight: bold;}
+#landingBox .headscapeLogo {margin: 2px 0 0 0;}
+#landingBox li.poweredBy {font-size: 80%;}
+#landingBox li.poweredBy a {color: #4f4f4f;}
+#landingBox li.poweredBy a:hover {color: #48addf;}
+#landingBox img {border: none;}
+
+#landingBox .feeds ul {padding: 0px; margin: -37px -58px 0 0; background: none; float: right;}
+#landingBox .feeds li {padding: 0 0 0 5px; display: inline; float: right}
+#noLogin {float: left; position: absolute; left: -4000px;}
+
+
+/*  Content Specific
+------------------------------------------------------------------------------------------------------------------*/
+
+#content {position: relative; width: 740px; margin: 0px auto; text-align: left;background-color: rgb(209, 236, 255);}
+#contextualBoxContainer {background: url(../../images/layout/bgContextualTop.png) top left no-repeat;}
+#contextualBoxContainer, .migrationGraceNotice {width: 740px; float: left; margin-bottom: 6px; position: relative; margin: 0 0 36px 0;}
+
+.migrationGraceNotice {color: rgb(63, 108, 140);border: 1px solid rgb(63, 108, 140);background-color: rgb(209, 236, 255);}
+
+#contextualBox {width: 740px; float: left; position: relative; margin-bottom: -6px; background: url(../../images/layout/bgContextualBot.png) bottom left no-repeat;}
+#contextualBoxContainer a, .migrationGraceNotice a {color: #48addf}
+#contextualBoxContainer a:hover, .migrationGraceNotice a:hover {color: #ff0000}
+
+#pageError {width: 740px; float: left; position: relative; background: url(../../images/layout/bgPageErrorTop.png) top left no-repeat; padding: 15px 20px 5px 0; margin: 0 0 37px 0;}
+#pageError .close {width: 740px; height: 17px; background: url(../../images/layout/bgPageErrorBot.png) bottom left no-repeat; margin: 0 0 -22px 0;}
+#pageError p {padding: 0px 20px 0px 55px; font-size: 85%;}
+#pageError a {color: #000; font-weight: bold; font-size: 105%;}
+#pageError a:hover {color: #fff;}
+
+#pageError .closeBox {width: 13px; height: 13px; padding: 0px 0px 0px 0px;}
+#pageError .closeBox span {display: none;}
+#pageError .closeBox a {background: url(../../images/layout/iconDeleteError.png) 0px 0px no-repeat; width: 13px; height: 13px; margin: 5px 10px 0 0; float: right;}
+#pageError .closeBox a:hover {background-position: 0px -13px;}
+
+#pageConfirm {width: 740px; float: left; position: relative; background: url(../../images/layout/bgPageConfirmTop.png) top left no-repeat; padding: 15px 20px 5px 0; margin: 0 0 37px 0;}
+#pageConfirm .close {width: 740px; height: 17px; background: url(../../images/layout/bgPageConfirmBot.png) bottom left no-repeat; margin: 0 0 -22px 0;}
+#pageConfirm p {padding: 0px 20px 0px 55px; font-size: 85%; font-weight: bold;}
+#pageConfirm a {color: #000; font-weight: bold; font-size: 105%;}
+#pageConfirm a:hover {color: #fff;}
+
+#pageConfirm .closeBox {width: 13px; height: 13px; padding: 0px 0px 0px 0px;}
+#pageConfirm .closeBox span {display: none;}
+#pageConfirm .closeBox a {background: url(../../images/layout/iconDeleteConfirm.png) 0px 0px no-repeat; width: 13px; height: 13px; margin: 5px 10px 0 0; float: right;}
+#pageConfirm .closeBox a:hover {background-position: 0px -13px;}
+
+#pageHelper {width: 740px; float: left; position: relative; background: url(../../images/layout/bgPageHelperTop.png) top left no-repeat; padding: 15px 20px 5px 0; margin: 0 0 37px 0;}
+#pageHelper .close {width: 740px; height: 17px; background: url(../../images/layout/bgPageHelperBot.png) bottom left no-repeat; margin: 0 0 -22px 0;}
+#pageHelper h3 {padding: 0px 30px 5px 55px; font-size: 90%;}
+#pageHelper h4 {padding: 0px 30px 5px 55px; font-size: 85%;}
+#pageHelper p {padding: 0px 30px 5px 55px; font-size: 85%;}
+#pageHelper a {color: #000; font-weight: bold; font-size: 105%;}
+#pageHelper ul {padding: 0px 20px 5px 55px; font-size: 85%;}
+#pageHelper a:hover {color: #fff;}
+
+#pageHelper .closeBox {width: 13px; height: 13px; padding: 0px 0px 0px 0px;}
+#pageHelper .closeBox span {display: none;}
+#pageHelper .closeBox a {background: url(../../images/layout/iconDeleteHelper.png) 0px 0px no-repeat; width: 13px; height: 13px; margin: 5px 10px 0 0; float: right;}
+#pageHelper .closeBox a:hover {background-position: 0px -13px;}
+
+#message, .migrationGraceNotice p {padding: 8px 0 8px 20px; font-size: 75%; font-weight: bold;}
+#message {color: #4f4f4f;float: left; position: relative;}
+#breadcrumbs {float: left; position: relative; padding: 8px 0 8px 20px; font-size: 75%; font-weight: bold; color: #000}
+#breadcrumbs li {display: inline; color: #4f4f4f;}
+#breadcrumbs li a {color: #000; text-decoration: underline;}
+#breadcrumbs li a:hover {color: #48addf;}
+
+#date {float: right; position: relative; padding: 8px 20px 8px 0; font-size: 75%; font-weight: bold; color: #6f6f6f}
+#slideshow #date {color: #999}
+
+#filterView {float: right; position: relative; padding: 8px 20px 8px 0; font-size: 75%; font-weight: bold; color: #6f6f6f;}
+#filterView ul {float: left;}
+#filterView ul li {float: left;}
+#filterView ul li form {padding: 0 0 0 10px}
+
+.smallCrumb {font-size: 80%; color: #4f4f4f; padding: 0 0 0 10px; margin: 0 0 0 10px; border-left: 1px solid #4f4f4f;}
+
+#accountNavigation {position: relative; padding: 8px 0px; font-size: ; font-weight: ; text-align: center !important;}
+#accountNavigation ul {}
+#accountNavigation li {display: inline; padding: 0 8px; border-left: 1px solid #767676; color: #000;}
+#accountNavigation li.last {border-right: 1px solid #767676;}
+#accountNavigation li a {color: #767676;}
+
+.designNavigation {width: 740px; float: left; position: relative; margin: -15px 0 15px 0; text-align: center;}
+.designNavigation .bottom {margin: 15px 0 0 0;}
+.designNavigation ul {}
+.designNavigation li {display: inline; font-size: 85%; color: #c5c5c5;}
+.designNavigation li a {color: #4f4f4f;}
+.designNavigation li a:hover {color: #ff0000;}
+
+.designNavigation .prevVersion {padding: 0 15px 0 0px; display: none;}
+.designNavigation .prevVersion a {padding: 5px 0 5px 20px; text-align: left; background: url(../../images/layout/iconPrevVersionGreen.png) 0 50% no-repeat;}
+.designNavigation .prevVersion a:hover {background-image: url(../../images/layout/iconPrevVersionGrey.png);}
+.designNavigation .prevDesign {padding: 0 15px 0 0; }
+.designNavigation .prevDesign a {text-align: left; padding: 5px 0 5px 23px; background: url(../../images/layout/iconPrevVersionGreen.png) 0 50% no-repeat;}
+.designNavigation .prevDesign a:hover {background-image: url(../../images/layout/iconPrevDesignGrey.png);}
+.designNavigation .allDesigns {padding: 0 10px 0 0}
+.designNavigation .allDesigns a {padding: 0 10px 0 45px; border-right: 1px solid #4f4f4f}
+.designNavigation .allDesigns a:hover {}
+.designNavigation .allVersions {padding: 0 45px 0 0;}
+.designNavigation .allVersions a {}
+.designNavigation .allVersions a:hover {}
+.designNavigation .nextDesign {padding: 0 0 0 15px;}
+.designNavigation .nextDesign a {text-align: right; padding: 5px 23px 5px 0; background: url(../../images/layout/iconNextVersionGreen.png) 100% 50% no-repeat;}
+.designNavigation .nextDesign a:hover {background-image: url(../../images/layout/iconNextDesignGrey.png);}
+.designNavigation .nextVersion {padding: 0 0 0 15px; display: none;}
+.designNavigation .nextVersion a {text-align: right; padding: 5px 20px 5px 0; background: url(../../images/layout/iconNextVersionGreen.png) 100% 50% no-repeat;}
+.designNavigation .nextVersion a:hover {background-image: url(../../images/layout/iconNextVersionGrey.png);}
+.designNavigation .prevVersion a, .designNavigation .nextVersion a, .designNavigation .allVersions a {color: #48addf}
+
+#addProject {width: 740px; float: left; position: relative; background: url(../../images/layout/bgContextualBot.png) bottom left no-repeat; margin: -14px 0 16px 0;}
+#addProject form {padding: 15px 20px 0 20px; margin-bottom: 6px; background: url(../../images/layout/bgContextualTop.png) top left no-repeat; float: left; width: 740px}
+#addProject #clientid {margin: 0 0 0 10px;}
+
+
+/*  Full Column Specific
+------------------------------------------------------------------------------------------------------------------*/
+
+#mainCol.fullWidth {width: 740px; background: url(../../images/layout/bgMainColFullTop.png) top left no-repeat;}
+#mainCol.fullWidth .close {position: absolute; left: 0px; bottom: 0px; width: 740px; background: url(../../images/layout/bgMainColFullBot.png) bottom left no-repeat; height: 10px;}
+#mainCol.fullWidth .section {padding: 5px 5px; width: 730px; float: left;}
+#mainCol.fullWidth .section h2 {background: url(../../images/layout/bgMainColSectionFullTop.png) bottom left no-repeat; width: 730px; padding: 0px 0px 10px 15px}
+#mainCol.fullWidth .section ul {width: 730px}
+
+#mainCol.fullWidth .section li.last, #mainCol.fullWidth .section .close {background: url(../../images/layout/bgMainColSectionFullBot.png) bottom left no-repeat; padding-bottom: 30px; width: 700px;}
+
+#mainCol .singleProject ul.notes {position: absolute;}
+#mainCol .singleProject ul.theDesign {position: relative; float: left; width: 730px; margin: 0 0 15px 0;}
+#mainCol .singleProject ul.theDesign {}
+#mainCol .singleProject ul.theDesign li img {border: 1px solid #e3e4e4;}
+
+#mainCol .singleProject ul.theDesign li.zoom {position: absolute; right: -15px; top: -15px; z-index: 255;}
+#mainCol .singleProject ul.theDesign li.zoom a {width: 39px; height: 39px; background: url(../../images/layout/iconZoom.png) top left no-repeat; display: block}
+#mainCol .singleProject ul.theDesign li.zoom span {display: none;}
+
+#addNote {position: relative; padding: 0 0 0 0; margin: 0 0 0 0; display: block; clear: both; z-index: 255}
+#singleUpload {position: relative; padding: 0 0 0 0; margin: -10px 0 0 0; z-index: 255}
+#signOff {position: relative; padding: 0 0 0 0; margin: -10px 0 0 0px; z-index: 255; float: right !important}
+#timeStamp {float: right !important; font-style: italic; color: #ccc; font-size: 80%; position: relative; margin: -15px 0 0 0; padding-top: 0px !important; padding-bottom: 0px !important; color: #777;}
+#timeStamp .date, #timeStamp .time {color: #444 !important;}
+
+#mainCol.fullWidth #firstToComment {width: 700px; padding: 15px; position: relative; float: left; background: white;}
+#mainCol.fullWidth #firstToComment .container {border-top: 2px solid #ff0000; border-bottom: 2px solid #ff0000; background-color: #ffedda; padding: 10px 4px;}
+#mainCol.fullWidth #firstToComment .container h3 {color: #f57e2e; padding: 0 0 5px 0;}
+#mainCol.fullWidth #firstToComment .container p {color: #000; font-size: 90%;}
+
+.versionHistory .firstToComment {position: relative; float: left; background: #fff; width: 520px; margin: 0 15px;}
+.versionHistory .firstToComment .container {border-top: 2px solid #ff0000; border-bottom: 2px solid #ff0000; background-color: #ffedda; padding: 10px;}
+.versionHistory .firstToComment .container h3 {color: #f57e2e; padding: 0 0 5px 0;}
+.versionHistory .firstToComment .container h3 a {color: #f57e2e !important;}
+.versionHistory .firstToComment .container h3 a:hover {color: #4f4f4f !important;}
+.versionHistory .firstToComment .container p {color: #000; font-size: 90%;}
+
+#mainCol.fullWidth form {background: url(../../images/layout/bgMainColSectionFullBot.png) bottom left no-repeat #fff;}
+#mainCol fieldset {}
+#mainCol.fullWidth textarea#addCommentMessage {width: 688px; overflow: auto; height: 100px; margin: 0 0 15px 0; border: 1px solid #bfbfbf; background-color: #f7f8f8; padding: 5px;}
+
+#mainCol.fullWidth .section.addcomment .mceLayout {width: 700px !important;}
+
+.addCommentMessageContainer { clear: both; margin-left: 15px; }
+
+.accountType .tableContainer table {width: 730px}
+.tableContainer {padding: 15px; background-color: #fff; position: relative; float: left; width: 700px}
+.tableContainer p { margin-bottom: 14px; } 
+.tableContainer table {border-collapse: collapse; clear: left;}
+.tableContainer td {padding: 5px 5px 5px 8px;}
+.tableContainer table td.titleCol.blank {width: 25% !important;}
+.tableContainer table td.fieldCol {width: %;}
+.tableContainer table td.infoCol {width: 20% !important;}
+.tableContainer table tr.odd {background-color: #f1f1f1;}
+.tableContainer table tr.even {background-color: #f7f8f8; border-bottom: 3px solid #fff; border-top: 3px solid #fff;}
+.tableContainer .title {font-weight: bold;}
+.accountType .tableContainer {padding: 0;}
+
+form.moxBoxForm .tableContainer {width: 670px;}
+
+.tableContainer #upgradeInfo {background: #f1f1f1; padding: 10px; margin: 0 0 3px 0; float: left; width: 680px; position: relative;}
+.tableContainer #upgradeInfo p {font-size: 90%; margin: 0 0 5px 0;}
+.tableContainer #upgradeInfo h3 {font-size: 100%; margin: 0 0 5px 0;}
+
+.paypalButton {margin: 10px 0 -5px -1px; border: 0px;}
+.paypalButton:hover {border: 0px;}
+.paymentPrice {color: #48addf; font-weight: bold;}
+.tableContainer #upgradeInfo ul.paymentDetailsConfirm {width: 100%; margin: 0px; padding: 0px; background-color: #f1f1f1; border: 0px; position: relative;}
+.tableContainer #upgradeInfo ul.paymentDetailsConfirm li {float: none; padding: 0px; margin: 0px; border-bottom: 1px solid #fff;}
+.tableContainer #upgradeInfo ul.paymentDetailsConfirm li.title {color: #ff0000; border-bottom: 1px solid #ff0000; margin: 0 0 10px 0;}
+.tableContainer #upgradeInfo ul.paymentDetailsConfirm li span.fieldName {width: 14.5em; position: relative; display: block; float: left;}
+.tableContainer #upgradeInfo ul.paymentDetailsConfirm li span.fieldDetail {position: relative; color: #777;}
+.tableContainer #upgradeInfo ul.paymentDetailsConfirm li.last {background-image: none; width: 100%; margin: 0 0 15px 0; padding: 0px;}
+.tableContainer #upgradeInfo ul.paymentDetailsConfirm li.confirm {color: #2faa38; padding: 10px 0 0 0; border-bottom: 1px solid #2faa38;}
+.tableContainer #upgradeInfo ul.paymentDetailsConfirm li:last-child {border: none;}
+.tableContainer #upgradeInfo ul.paymentDetailsConfirm li.last div, .tableContainer #upgradeInfo ul.paymentDetailsConfirm li.last a {position: relative;}
+.tableContainer #upgradeInfo form  {width: 660px; padding: 10px;}
+.tableContainer #upgradeInfo form ul.paymentDetailsConfirm {width: 640px; padding: 10px;}
+.tableContainer #upgradeInfo p.invoiceAddress {padding: 0 0 5px 0; float: right; text-align: right; margin: 0 0 5px 0;}
+.tableContainer #upgradeInfo p.invoiceVat {float: left;}
+.tableContainer #upgradeInfo ul.paymentDetailsConfirm li .cost {font-weight: bold; color: #000 !important}
+.tableContainer #upgradeInfo ul.paymentDetailsConfirm li .invoicePeriod {color: #666;}
+acronym {cursor: help;}
+
+.accountType .tableContainer table td.infoCol {background-color: #e9e9e9; width: 30%;}
+.accountType .tableContainer table td.infoCol.currentPlan {background: url(../../images/layout/bgCurrentPlan.png) top right no-repeat #97d4f1; padding-top: 10px;}
+.accountType .tableContainer table td {border-right: solid 3px #fff;}
+.blank {background-color: #fff;}
+.accountType h3 {color: #000;}
+.accountType p.cost {color: #4f4f4f; font-weight: bold; font-size: 95%; padding: 3px 0 0 0;}
+.accountType p.cost span.choice {font-size: 85%;color: #db2424 !important;}
+
+#accountUpgradePayPal {padding: 0px !important; margin: 0px !important; background: none !important;}
+#accountUpgrade {padding: 0px !important;}
+
+#mainCol .versionHistoryContent {width: 730px; background: url(../../images/layout/bgVersionHistoryBot.png) bottom left repeat-y #000; float: left; position: relative;}
+#mainCol.fullWidth .section.versionHistory h2 {background-image: url(../../images/layout/bgVersionHistoryTop.png);}
+#mainCol .versionHistory .projectComments {float: right; position: relative; width: 552px; margin: 0 0 10px 0;}
+#mainCol .versionHistory .projectThumbs ul {width: 173px;}
+#mainCol .versionHistory .projectComments ul {width: 532px;}
+#mainCol .versionHistory .projectComments li.last {width: 522px; background-image: none;}
+#mainCol .close.versionHistory {background-image: url(../../images/layout/bgVersionHistoryClose.png);}
+
+
+/* Assigned to project box
+------------------------------------------------------------------------------------------------------------------*/
+
+#mainCol .projectThumbs ul li.assignedToProject {padding: 0px !important; margin: 0px !important;}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject {position: relative; float: left; background-color: #f3f3f3; padding: 0px !important; margin: 0px 15px !important; width: 458px; border-top: 2px solid #d0d0d0; border-bottom: 2px solid #d0d0d0; border-left: 1px solid #d0d0d0; border-right: 1px solid #d0d0d0; display: inline;}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject li {}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject li .delete {width: 13px; height: 13px; padding: 0px 10px 0px 0px; position: relative; float: left;}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject li .delete span {display: none;}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject li .delete a {background: url(../../images/layout/iconDelete.png) top left no-repeat; width: 13px; height: 13px; margin: 1px -5px 0 0; position: absolute;}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject li .delete a:hover {background-position: 0px -13px;}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject h3 {color: #4f4f4f;}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject ul.usersAssigned {position: relative; float: left; width: 430px; background-color: #f3f3f3; font-size: 100%}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject ul.usersAssigned li {padding: 0 15px 0 0 !important; margin: 0px !important;}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject ul.usersAssigned li a:hover {color: #000}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject ul.usersUnassigned {margin: -30px 0 0 0 !important; padding: 0px !important;position: relative;  float: left; width: 430px; background-color: #f3f3f3; font-size: 100%;}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject ul.usersUnassigned li {padding: 0px !important; margin: 0px !important; float: left; position: relative; clear: left;}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject ul.usersUnassigned .title {}
+#mainCol .projectThumbs ul li.assignedToProject ul.assignedToProject ul.usersUnassigned .ddlSml {width: 134px; border: 1px solid #bfbfbf; padding: 1px; margin: 5px 0 0 0;}
+
+
+#mainCol .manageProject form {width: 200px !important; background-color: inherit !important; background-image: none !important; margin: 0px; padding: 0px}
+
+#mainCol .manageProject .tools {text-align: right; font-weight: bold; position: relative; float: right; font-weight: normal;}
+#mainCol .manageProject h2 .view a.mbmFetch {color: #; font-size: 80%; border-left: 1px solid #999; padding: 0 0 0 15px}
+#mainCol .manageProject h2 .view a:hover.mbmFetch {color: #404040}
+#mainCol .manageProject h2 .deleteClient {font-size: 80%; border-left: 1px solid #999; margin: 0 0 0 10px; padding: 0 0 0 15px;}
+#mainCol .manageProject h2 .deleteClient a {color: #ff0000;;}
+#mainCol .manageProject h2 .deleteClient a:hover {color: #000;}
+#mainCol .manageProject h2 .suspended {font-size: 70%; color: #000;}
+#mainCol .manageProject h2 .suspended a {background-color: #ff7200; color: #fff; padding: 0 3px}
+#mainCol .manageProject h2 .suspended a:hover {color: #000}
+#mainCol .manageProject .tools .view a:hover {color: #000;}
+#mainCol .manageProject .tools .delete {}
+#mainCol .manageProject .tools .view {margin: 0 5px 0 0; padding: 0 10px 0 0; border-right: 1px solid #4f4f4f;}
+#mainCol .manageProject .tools .delete a {color: #4f4f4f;}
+#mainCol .manageProject .tools .delete a:hover {color: #db2424;}
+#mainCol .manageProject .tools .view a {color: #4f4f4f;}
+#mainCol .manageProject .tools .view a:hover {color: #48addf;}
+#mainCol .manageProject .project {font-size: 100%; color: #ff0000;}
+#mainCol .manageProject .listTitle {color: #4f4f4f;}
+#mainCol .manageProject .tools a {padding: 10px 3px;}
+#mainCol .manageProject .last .addFormContainer {padding: 0px; margin: -20px 0 0 0; background-color: none;}
+#mainCol .manageProject .last .addFormContainer ul {width: 300px; margin: 0px !important; padding: 0px !important; background-color: none;}
+#mainCol .manageProject .last .addFormContainer li {font-weight: bold; padding-bottom: 0px !important; margin: 0 0 0 -15px}
+#mainCol .manageProject .last .addFormContainer li a {background: url(../../images/layout/iconAddNewOrange.png) 0 50% no-repeat; padding: 0 0 0 15px; color: #48addf}
+#mainCol .manageProject .last .addFormContainer li a:hover {background-image: url(../../images/layout/iconAddNewGrey.png); color: #4f4f4f}
+#mainCol .manageProject .addFormContainer {}
+#content .addFormContainer {float: left; position: relative; padding: 0 0 20px 20px;}
+#content .addFormContainer ul {width: 300px; margin: 0px !important; padding: 0px !important}
+#content .addFormContainer li {font-weight: bold; padding-bottom: 5px !important; margin: 0 0 0 -15px}
+#content .addFormContainer li a {background: url(../../images/layout/iconAddNewOrange.png) 0 50% no-repeat; padding: 0 0 0 15px; color: #48addf}
+#content .addFormContainer li a:hover {background-image: url(../../images/layout/iconAddNewGrey.png); color: #4f4f4f}
+#content .addFormContainer form {width: 720px; padding: 15px 0px 0 20px; background: url(../../images/layout/bgMiscBoxTop.png) top left no-repeat; margin: 0 0 20px -20px; float: left;}
+#content .addFormContainer table .formFieldCol {width: 250px}
+#content .addFormContainer form .close {background: url(../../images/layout/bgMiscBoxBot.png) bottom left no-repeat; height: 17px; clear: left; margin: 0 0 -17px -20px; width: 740px}
+
+#content .addFormContainer form .closeBox {width: 13px; height: 13px; padding: 1px;}
+#content .addFormContainer form .closeBox span {display: none}
+#content .addFormContainer form .closeBox a {background: url(../../images/layout/iconDeleteMisc.png) 0px 0px no-repeat; width: 13px; height: 13px; margin: 5px 10px 0 0; float: right;}
+#content .addFormContainer form .closeBox a:hover {background-position: 0px -13px;}
+
+
+.moveHandle {background: url('../../images/layout/drag_handle.gif') no-repeat top right; cursor: move; width: 15px; height: 15px; float: right;}
+.moveHandle {background: url('../../images/layout/drag_handle.gif') no-repeat center center; cursor: move; width: 15px; height: 15px; float: right;}
+.editable .listTitle {display: inline; padding: 0 20px 0 0;}
+.editable form {display: none;}
+.editing .listTitle {display: none;}
+.editing form {width: 300px; display: block; margin: 0 0 10px 0;}
+.editable .listTitle:hover {background: url(../../images/layout/iconEditTitle.gif) 100% 50% no-repeat #fffc9f;}
+
+div.titleSave input {border: none; background: none; clear: none; float: left; padding: 0; cursor: pointer; color: green; font-weight: bold; margin: 0px 2px 0 0; font-size: 12px !important;}
+div.titleSave input:hover {color: #000}
+a.canceledit span {color: #db2424; font-size: 12px !important;}
+a:hover.canceledit span {color: #000}
+
+#mainCol .customiseContainer {padding: 15px; background-color: #fff; position: relative; float: left; width: 700px;}
+#mainCol .customiseContainer p {background-color: #f7f8f8; padding: 15px; margin: 0 0 3px 0;}
+
+#mainCol .customiseContainer form {background-color: #f7f8f8; width: 670px; padding: 15px; background-image: none;}
+#mainCol .customiseContainer ul.customiseNav {width: 670px; background: none; margin: 0px; padding: 0px}
+#mainCol .customiseContainer ul.customiseNav li {padding: 0px; margin: 0px; background-color: #f0f0f0; border-top: 1px solid #fff; border-left: 1px solid #fff; padding: 8px;}
+#mainCol .customiseContainer ul.customiseNav li.customiseNavLast {border-right: 1px solid #fff;}
+#mainCol .customiseContainer ul.customiseNav li a {color: #4f4f4f;}
+#mainCol .customiseContainer ul.customiseNav li.current {background-color: #e3e4e4;}
+#mainCol .customiseContainer ul.customiseNav li a:hover {color: #48addf;}
+
+#mainCol .customiseContainer textarea {border: 1px solid #e3e4e4; padding: 5px; width: 658px; margin: 0 0 20px 0; float: left;}
+#mainCol .customiseContainer .scroller {width:670px; clear:both; overflow:hidden;}
+#mainCol .customiseContainer .scrollerContainer {width:5000px;}
+
+
+/*  Main Column Specific
+------------------------------------------------------------------------------------------------------------------*/
+
+#mainCol {float: left; position: relative;}
+#mainCol a {color: #ff0000;}
+#mainCol {width: 500px; background: url(../../images/layout/bgMainColTop.png) top left no-repeat; position: relative;}
+#mainCol.withSubCol .close {position: absolute; left: 0px; bottom: 0px; width: 500px; background: url(../../images/layout/bgMainColBot.png) bottom left no-repeat; height: 10px;}
+
+#mainCol.withSubCol .section {padding: 5px 5px; width: 490px; float: left;}
+#mainCol.withSubCol .section h2 {background: url(../../images/layout/bgMainColSectionTop.png) bottom left no-repeat; width: 490px; padding: 0px 0px 10px 15px; z-index: 1000;}
+#mainCol .section h2.first {padding-top: 4px;}
+
+#mainCol .section ul {padding: 15px 0 0 0; background-color: #fff; font-size: 90%; float: left; position: relative; width: 490px}
+#mainCol .section li {padding: 15px; position: relative; float: left;}
+
+#mainCol .section li .viewMoreComments {font-weight: bold; float: right}
+#mainCol .section li .viewMoreComments a {color: #48addf; background: url(../../images/layout/iconViewMoreComments.gif) 100% 60% no-repeat; padding: 0 15px 0 0}
+#mainCol .section li .viewMoreComments a:hover {color: #4f4f4f; background: url(../../images/layout/iconViewMoreCommentsHover.gif) 100% 60% no-repeat; padding: 0 15px 0 0}
+
+#mainCol .section li .hideMoreComments {font-weight: bold; float: right}
+#mainCol .section li .hideMoreComments a {color: #48addf; background: url(../../images/layout/iconHideMoreComments.gif) 100% 60% no-repeat; padding: 0 15px 0 0}
+#mainCol .section li .hideMoreComments a:hover {color: #4f4f4f; background: url(../../images/layout/iconHideMoreCommentsHover.gif) 100% 60% no-repeat; padding: 0 15px 0 0}
+
+#mainCol .section .projectComments li .viewMoreComments {margin: 0 -20px 0 0;}
+#mainCol .section .projectComments li .hideMoreComments {margin: 0 -20px 0 0;}
+
+#mainCol .section li ul.moreComments {padding: 0px; margin: 0 0 0 -15px; font-size: 100%;}
+#mainCol .section li ul.moreComments li {}
+
+#mainCol .section li.even {background-color: #f7f8f8}
+#mainCol .section li.deletedComment {background-color: #ececec; border-top: 1px dotted #e1e1e1;  border-bottom: 1px dotted #e1e1e1}
+#mainCol .section li.first {padding-top: 0px;}
+#mainCol.withSubCol .section li.last {padding-bottom: 0px; background: url(../../images/layout/bgMainColSectionBot.png) bottom left no-repeat; padding-bottom: 15px;}
+
+#mainCol .section li.unreadComment {background: url(../../images/layout/bgNewComment.png) top right no-repeat #e3f6ff; border-top: 1px dotted #48addf; padding-top: 20px !important;}
+#mainCol .section li.first.unreadComment {background-color: #e3f6ff; border-top: 1px dotted #48addf;}
+#mainCol .section li.last.unreadComment {background-color: #e3f6ff !important; border-top: 1px dotted #48addf; border-bottom: none; padding-bottom: 10px;}
+
+#commentList li.signOffComment {background: url(../../images/layout/iconSignedOffInline.gif) 700px 10px no-repeat #caf2c8 !important; border-top: 1px dotted #09cb00; border-bottom: 1px dotted #09cb00; padding-top: 20px !important}
+#commentList li.signOffComment.first {padding-top: 10px;}
+#commentList li.signOffComment.last {padding-bottom: 10px;}
+#commentList span.comment {margin: 0 0 10px 0;}
+#commentList li.signOffComment .details .user a {color: #068e00 !important;}
+#commentList li.signOffComment .details .time {color: #48bb43 !important;}
+#commentList li.signOffComment .details .date {color: #48bb43 !important;}
+#commentList li.signOffComment img.avatar {float: left; position: relative; padding: 2px; border: 1px solid #09cb00; margin: 0 10px 5px -45px; background-color: #fff; height: 28px; width: 28px;}
+.avatar {background-color: #fff;}
+#commentList .privateComment {background: url(../../images/layout/bgPrivateComment.png) 97% 15px no-repeat #ffe6e6 !important; border-top: 1px dotted #ec0000; border-bottom: 1px dotted #ec0000; padding-top: 20px !important;}
+
+#commentList .delete {width: 13px; height: 13px; padding: 0px 0px 0px 0px; z-index: 10000;}
+#commentList .delete span {display: none;}
+#commentList .delete a {background: url(../../images/layout/iconDelete.png) top left no-repeat; width: 13px; height: 13px; margin: -8px -5px 0 0; float: right; z-index: 10000;}
+#commentList .delete a:hover {background-position: 0px -13px;}
+#commentList .details {padding: 0 0 0 45px;}
+#commentList .comment {padding: 0 0 0 45px;}
+#commentList .avatar {margin: 0 0 0 -45px;}
+#commentList .hasNote .avatar {margin: 0 10px 0 0;}
+
+#mainCol .section .project {float: left; font-weight: bold; position: relative; font-size: 95%; color: #666}
+#mainCol .section .project a {color: #999!important}
+#mainCol .section .project a:hover {color: #48addf !important}
+#mainCol .section .details {text-align: right; font-weight: bold; position: relative; float: left; font-size: 95%; clear: both;}
+#mainCol .section .clientComments .details {font-size: 80%; padding: 0 0 0 45px; font-size: 11px;}
+#mainCol .section .details a {color: #48addf !important}
+#mainCol .section .details a:hover {color: #ff0000 !important}
+#mainCol .section .user {color: #777;}
+#mainCol .section .user a {color: #777 !important}
+#mainCol .section .user a:hover {color: #48addf !important}
+#mainCol .section .time {color: #999}
+#mainCol .section .date {color: #999}
+#mainCol .section .comment {margin-top: 4px; display: block; clear: left; position: relative; color: #000;}
+#mainCol .section .hasNote a {left: 44px; position: absolute;}
+
+#mainCol .section ul.clientComments li .project {clear: left; padding: 6px 0 0 45px; font-size: 80%; margin: 0 0 -3px 0; font-size: 11px;}
+#mainCol .section ul.clientViews li .project {margin: 0 0 0 0; clear: none;}
+#mainCol .section ul.clientViews li .details {margin: 0 0 0 0; clear: none;}
+
+#mainCol .section .comment.hasNote {padding: 0 0 10px 100px;}
+#mainCol .section .viewNote {float: left; display: block;  padding: 5px 0 6px 15px; position: absolute; width: 85px; margin: 2px 0 0 -115px; border-right: 1px solid #e3e4e4; border-top: 1px solid #e3e4e4; border-bottom: 1px solid #e3e4e4; background-color: #f0f0f0; height: 18px}
+#mainCol .section .viewNote em {}
+#mainCol .section .viewNote em a {background: url(../../images/layout/iconNote.png) 0 50% no-repeat; padding: 4px 0 4px 25px; font-style: normal; font-size: 85%; color: #4f4f4f; width: 50px; margin: -2px 0 0 -30px}
+#mainCol .section .viewNote em a:hover {color: #48addf;}
+
+#mainCol .section .comment .commentLists {width: inherit; margin: 0px; padding: 0px; background: none; padding: 5px 0; width: 100%;}
+#mainCol .section .comment ul {width: 100%; background-color: inherit;}
+#mainCol .section .comment ol li {padding: 0px; margin: 0px; float: none; list-style-type: decimal; list-style-position: inside;}
+#mainCol .section .comment ul li {padding: 0px; margin: 0px; float: none; list-style-type: disc; list-style-position: inside;}
+#mainCol .section .comment blockquote {font-family: "Courier New", Courier, monospace}
+#mainCol .section .comment h4 {padding: 5px 0; font-size: 110%;}
+
+#mainCol .feeds li img {border: none;}
+#mainCol .section .feeds ul {padding: 0px; margin: -29px 1px 0 0; background: none; width: 70px; float: right; z-index: 1000;}
+#mainCol .section .feeds li {padding: 0 0 0 5px; display: inline; float: right}
+#mainCol .feeds li img {border: none;}
+
+#mainCol .section .templateBundle ul {padding: 0px; margin: -29px 5px 0 0; background: none; width: 250px; float: right;}
+#mainCol .section .templateBundle li {padding: 0 0 0 5px; display: inline; float: right; font-size: 85%;}
+#mainCol .section .templateBundle li a {color: #4f4f4f;}
+#mainCol .section .templateBundle li a:hover {color: #ff0000;}
+#mainCol .section .templateBundle .help {font-weight: bold;}
+#mainCol .section .templateBundle .help a {color: #db2424;}
+#mainCol .section .templateBundle .help a:hover {color: #48addf;}
+
+#mainCol .projectThumbs li.project {width: 143px; padding: 0px 0px 0px 0px; margin: 0 0 30px 15px}
+#mainCol .projectThumbs li.project img {background: url(../../images/layout/bgImageThumb.png) top left no-repeat; padding: 6px; border: none;}
+#mainCol .projectThumbs ul {width: 490px}
+#mainCol .projectThumbs li .title {font-weight: bold; font-size: 90%; padding: 0 0 2px 6px; position: relative; float: left;}
+#mainCol .projectThumbs li a .title {color: #4f4f4f;}
+#mainCol .projectThumbs li a:hover .title {color: #ff0000;}
+#mainCol.withSubCol .projectThumbs .upload {clear: left; width: 490px; padding-bottom: 30px !important; font-weight: bold;}
+#mainCol .projectThumbs .clear {clear: both;}
+
+#mainCol .projectThumbs li.project.newActivity img {background: url(../../images/layout/bgImageThumbNewActivity.png) top left no-repeat; padding: 6px; border: none;}
+#mainCol .projectThumbs li.project.newActivity .projectTools .newComment {background: url(../../images/layout/iconNewComment.png) top left no-repeat; width: 21px; height: 19px; position: absolute; top: -144px; right: -7px}
+#mainCol .projectThumbs li.project.newActivity .projectTools .newVersion {background: url(../../images/layout/iconNewVersion.png) top left no-repeat; width: 21px; height: 19px; position: absolute; top: -144px; right: -7px}
+#mainCol .projectThumbs li.project.newActivity .projectTools .newCommentAndVersion {background: url(../../images/layout/iconNewCommentAndVersion.png) top left no-repeat; width: 43px; height: 19px; position: absolute; top: -144px; right: -7px}
+
+#mainCol .projectThumbs li.project.signedOff img {background: url(../../images/layout/bgImageThumbSignedOff.png) top left no-repeat; padding: 6px; border: none;}
+#mainCol .projectThumbs li.project.signedOff .projectTools .signedOff {background: url(../../images/layout/iconSignedOffBar.png) top left no-repeat; width: 137px; height: 19px; position: absolute; top: -26px; right: -7px}
+
+#mainCol .projectThumbs li.project.signedOff.newActivity .projectTools .newComment {background: url(../../images/layout/iconNewCommentSignedOff.png) top left no-repeat; width: 21px; height: 19px; position: absolute; top: -144px; right: -7px}
+#mainCol .projectThumbs li.project.signedOff.newActivity .projectTools .newVersion {background: url(../../images/layout/iconNewVersionSignedOff.png) top left no-repeat; width: 21px; height: 19px; position: absolute; top: -144px; right: -7px}
+#mainCol .projectThumbs li.project.signedOff.newActivity .projectTools .newCommentAndVersion {background: url(../../images/layout/iconNewCommentAndVersionSignedOff.png) top left no-repeat; width: 43px; height: 19px; position: absolute; top: -144px; right: -7px}
+
+
+.yes, .no {height: 13px; width: 18px; margin: 0 0 0 6px; padding: 0 0 0 18px}
+.yes {background: url(../../images/layout/iconYes.png) 0% 50% no-repeat;}
+.no {background: url(../../images/layout/iconNo.png) 0% 50% no-repeat;}
+.yes span, .no span {display: none;}
+
+#mainCol .projectThumbs li ul.projectTools {position: relative; background-color: #fff; width: 139px !important; padding: 0px 0 0 0; float: left}
+#mainCol .projectThumbs li .projectTools li {display: inline; width: 13px; height: 13px; padding: 0px 3px 0px 3px;}
+#mainCol .projectThumbs li .projectTools span {display: none;}
+#mainCol .projectThumbs li .projectTools .signedOff {background: url(../../images/layout/iconSignedOff.gif) top left no-repeat; width: 21px; height: 19px; position: absolute; bottom: 20px; right: -7px}
+#mainCol .projectThumbs li .projectTools .signedOff span {display: none;}
+#mainCol .projectThumbs li .projectTools .history a {background: url(../../images/layout/iconHistory.png) top left no-repeat; width: 13px; height: 13px; margin: 0 0px 0 5px; float: right;}
+#mainCol .projectThumbs li .projectTools .history a:hover {background-position: 0px -13px;}
+#mainCol .projectThumbs li .projectTools .edit a {background: url(../../images/layout/iconEdit.png) top left no-repeat; width: 13px; height: 13px; margin: 0 0px 0 5px; float: right;}
+#mainCol .projectThumbs li .projectTools .edit a:hover {background-position: 0px -13px;}
+#mainCol .projectThumbs li .projectTools .delete a {background: url(../../images/layout/iconDelete.png) top left no-repeat; width: 13px; height: 13px; margin: 0 0px 0 0; float: right;}
+#mainCol .projectThumbs li .projectTools .delete a:hover {background-position: 0px -13px;}
+#mainCol .projectThumbs input.titleBox {width: 129px;}
+
+#mainCol .teamMembers ul {padding: 15px; width: 700px !important; font-size: 85%;}
+#mainCol .teamMembers li {padding: 0 30px 30px 66px; width: 250px;}
+#mainCol .teamMembers li .avatar {float: left; margin: 0 0 0 -66px;}
+#mainCol .teamMembers li .avatar img {border: 1px solid #e3e4e4; padding: 2px;}
+#mainCol .teamMembers li .label {font-weight: bold;}
+#mainCol .teamMembers li .name {font-weight: bold;}
+#mainCol .teamMembers li .accountType {font-size: 80%;}
+#mainCol .teamMembers li .email a {color: #48addf;}
+#mainCol .teamMembers li .email a:hover {color: #ff0000}
+#mainCol .teamMembers li .editDetails a {color: #db2424;}
+#mainCol .teamMembers li .editDetails a:hover {color: #48addf}
+#mainCol .teamMembers li.clear {clear: left;}
+img.currentAvatar {border: 1px solid #bbb; padding: 3px; margin: 0 5px -5px 0; background-color: #fff;}
+.section img.avatar {float: left; position: relative; padding: 2px; border: 1px solid #e3e4e4; margin: 0 10px 5px 0; width: 28px; height: 28px;}
+
+/* Safari bugs */
+#mainCol .section li.even, #mainCol .section li.odd {width: 460px}
+#mainCol .section.manageProject li.even, #mainCol .section.manageProject li.odd {width: 700px}
+#mainCol #commentList li.even, #mainCol #commentList li.odd {width: 700px}
+#mainCol .versionHistory #commentList li.even, #mainCol .versionHistory #commentList li.odd {width: 522px}
+#addProject #clientname, #addProject #projectname {}
+#addProject #projectname {margin: 0 10px 0 0;}
+#addProject .MBbutton {clear: both !important;}
+/* End Safari bugs */
+
+
+/*  Slideshow Specific
+------------------------------------------------------------------------------------------------------------------*/
+
+body#slideshow {background-image: none; background-color: #4f4f4f;}
+
+#slideshow #slideshowNav {width: 100%; height: 40px; margin: 0 0 15px 0; background-color: #666; border-bottom: 2px solid #444; text-align: center; position: fixed; z-index: 255;}
+#slideshow #slideshowNav .container {width: 100%; height: 40px; margin: auto; text-align: center;}
+
+#slideshow #slideshowNav #breadcrumbs {font-size: 95%; margin: auto; position: relative; width: 100%; padding: 10px 0 10px 0;}
+#slideshow #slideshowNav #breadcrumbs li {color: #ccc}
+#slideshow #slideshowNav #breadcrumbs li a {color: #bbb}
+#slideshow #slideshowNav #breadcrumbs li a:hover {color: #fff}
+#slideshow #slideshowNav #breadcrumbs .current {color: #ff0000; margin: 0 0 0 5px; font-size: 85%;}
+
+#slideshow #slideshowNav #breadcrumbs .prevDesign {padding: 0 15px 0 0; margin: 0 25px 0 25px}
+#slideshow #slideshowNav #breadcrumbs .prevDesign a {text-align: left; padding: 5px 0 5px 23px; background: url(../../images/layout/iconPrevDesignGrey.png) 0 60% no-repeat; color: #fff}
+#slideshow #slideshowNav #breadcrumbs .prevDesign a:hover {background-image: url(../../images/layout/iconPrevDesignGreen.png); color: #48addf;}
+#slideshow #slideshowNav #breadcrumbs .nextDesign {padding: 0 0 0 15px; margin: 0 25px 0 25px;}
+#slideshow #slideshowNav #breadcrumbs .nextDesign a {text-align: right; padding: 5px 23px 5px 0; background: url(../../images/layout/iconNextDesignGrey.png) 100% 60% no-repeat; color: #fff;}
+#slideshow #slideshowNav #breadcrumbs .nextDesign a:hover {background-image: url(../../images/layout/iconNextDesignGreen.png); color: #48addf;}
+
+
+#slideshow #slideshowNav #breadcrumbs .closeSlideshow .close {width: 16px; height: 16px; padding: 0px 0px 0px 0px; float: right; position: absolute; margin: 0px; right: 10px;}
+#slideshow #slideshowNav #breadcrumbs .closeSlideshow .close span {display: none;}
+
+#slideshow #slideshowNav #breadcrumbs .closeSlideshow .close a {background: url(../../images/layout/iconClose.png) 0px 0px no-repeat; width: 16px; height: 16px; float: right;}
+#slideshow #slideshowNav #breadcrumbs .closeSlideshow .close a:hover {background-position: 0px -16px;}
+
+
+#slideshow .designImage {background-color: #4f4f4f !important; padding: 57px 0 0 0;}
+#slideshow .designImage img {border: 1px solid #333;}
+
+#slideshow {width: 100%;}
+#slideshow #content {width: auto;}
+#slideshow #container {width: auto; background-color: #4F4F4F;}
+#slideshow #container .bottom {width: auto; background-color: #4F4F4F;}
+#slideshow #mainCol {width: 100%; text-align: center;}
+
+
+/*  Sub Column Specific
+------------------------------------------------------------------------------------------------------------------*/
+
+#subCol {float: right; position: relative; width: 210px; background: url(../../images/layout/bgSubColTop.png) top left no-repeat;}
+#subCol .close {position: absolute; bottom: -1px; width: 210px; background: url(../../images/layout/bgSubColBot.png) bottom left no-repeat; height: 10px;}
+#subCol .section {padding: 5px 5px;}
+
+#subCol h2.first {padding-top: 6px}
+#subCol h2 {background: url(../../images/layout/bgSubColSectionTop.png) bottom left no-repeat; width: 200px; padding: 0px 0px 10px 10px; font-size: 90%; color: #fff;}
+
+#subCol .section ul {padding: 10px 0 2px 0; background-color: #fff; font-size: 100%; margin: 0 0 -2px 0;}
+#subCol .section li {padding: 0 0 0 10px;}
+#subCol #subNavigation li a:hover {color: #48addf !important;}
+#subCol .section li.even {background-color: #f7f8f8}
+#subCol .section li.first {padding-top: 0px;}
+#subCol .section li.last {padding-bottom: 0px; background: url(../../images/layout/bgSubColSectionBot.png) bottom left no-repeat; padding-bottom: 15px; margin: 0 0 -5px 0px;}
+
+#subNavigation a {color: #4f4f4f; background: url(../../images/layout/iconSubNavArrow.png) 0 50% no-repeat; padding: 0 0 0 12px;}
+#subNavigation .active a {background: url(../../images/layout/iconSubNavArrowActive.png) 0 50% no-repeat; padding: 0 0 0 12px; color: #db2424 !important; font-weight: bold;}
+#subNavigation li.active:first-child  a {color: #48addf !important}
+#subNavigation a:hover {color: #ff0000 !important}
+#subNavigation .clientName {font-weight: bold; padding: 0px; font-size: 105%; margin: 0 0 2px 0;}
+#subNavigation .clientName a {color: #48addf; padding: 0px; background-image: none;}
+#subNavigation .clientName a:hover {color: #48addf !important;}
+#subNavigation .clientName.active {background: url(../../images/layout/bgSubNavClientArrowBlue.png) 10px 50% no-repeat; padding: 0 0 0 22px; color: #48addf !important;}
+#subNavigation .clientName.active a, #subNavigation li.active a {color: #48addf;}
+#subNavigation .clientName.active a:hover, #subNavigation li.active a:hover {color: #4f4f4f !important;}
+
+
+#addNew ul {padding-bottom: 10px !important;}
+#addNew li {font-weight: bold; padding-bottom: 5px !important;}
+#addNew li a {background: url(../../images/layout/iconAddNewOrange.png) 0 50% no-repeat; padding: 0 0 0 15px; color: #48addf}
+#addNew li a:hover {background-image: url(../../images/layout/iconAddNewGrey.png); color: #4f4f4f}
+
+#content #addNew {position: relative; float: left; margin: -10px 0 0 0;}
+#subCol #addNew {position: relative; float: none; margin: 0;}
+
+
+/*  Footer Specific
+------------------------------------------------------------------------------------------------------------------*/
+
+#footer {width: 960px; height: 70px; background: url(../../images/layout/bgFooter.png) bottom left no-repeat; clear: both; padding-top: 28px;}
+#footer ul {width: 680px; position: relative; margin: 45px auto 0 auto;}
+#footer li {display: inline; color: #e3e4e4; font-size: 80%; float: left;}
+#footer li a {color: #e3e4e4; border-left: 1px solid #e3e4e4; padding: 0px 5px}
+#footer li a:hover {color: #fa9d3a;}
+#footer li.first a {border: none !important}
+#footer li.copyright {float: right; color: #fff;}
+
+
+/*  General Text & Form styles
+------------------------------------------------------------------------------------------------------------------*/
+
+form {}
+textarea {border: 1px solid #bfbfbf;}
+select {border: 1px solid #bfbfbf; padding: 1px;}
+textarea:hover, select:hover {border: 1px solid #48addf !important;}
+textarea:focus, select:focus {border: 1px solid #48addf !important; background-color: #f0f7fa;}
+input {padding: 2px 5px; border: 1px solid #bfbfbf;}
+input:hover {border: 1px solid #48addf;}
+input:focus {border: 1px solid #48addf; background-color: #f0f7fa;}
+.textFieldMed {width: 220px}
+.textFieldSml {width: 95px;}
+#templatefile {border: 1px solid #ccc !important; margin: 5px 0 10px 0;} 
+.ddlMed {width: 234px; border: 1px solid #bfbfbf; padding: 1px}
+span.formError {background: url(../../images/layout/iconFormError.png) 0px 50% no-repeat; padding: 4px 0 4px 25px; font-size: 75%}
+input.formError, .input-validation-error {border-color: #db2424; background-color: #fff1f1;}
+.active {background-color: none; border: none;}
+.stepActive {color: #; margin: 0 3px;}
+.stepInactive {color: #ababab; margin: 0 3px;}
+.hidden {display: none;}
+.show {display: block;}
+
+h2 {font-size: 105%; color: #000; position: relative;}
+h2 .subHeader {font-size: 70% !important; font-weight: normal; text-align: right; position: absolute; right: 85px; top: 0px}
+h2 .subHeader a {color: #4f4f4f !important;}
+h2 .subHeader a:hover {color: #ff0000 !important;}
+h2 .currentDesign {color: #db2424; padding: 0 0 0 10px;}
+h2 .signedOffDesign {color: #009200; padding: 0 0 0 10px; background: url(../../images/layout/iconSignedOffInline.gif) 0% 50% no-repeat; padding: 1px 0 1px 25px; margin: 0 0 0 10px;}
+a img {border: 0px;}
+
+dt {font-weight: bold;}
+dd {margin: 0 0 10px 0;}
+
+
+/*  Textpage specific
+------------------------------------------------------------------------------------------------------------------*/
+
+#textPage {width: 700px; padding: 15px; background-color: #fff;}
+
+#textPage p {margin: 0 0 10px 0; font-size: 85%;}
+#textPage h2 {font-size: 110%; margin: 0 0 5px 0; color: #48addf; backgroun-image: none !important;}
+#textPage h3 {font-size: 110%; margin: 0 0 5px 0; color: #48addf;}
+#textPage h4 {font-size: 105%; margin: 0 0 5px 0; color: #48addf;}
+#textPage h5 {font-size: 90%; margin: 0 0 5px 0; color: #48addf;}
+#textPage h6 {font-size: 85%; margin: 0 0 5px 0; color: #48addf;}
+#textPage .imgLeft {margin: 0 0.8em 0.8em 0; border: 1px solid #ddd; padding: 2px; border-right-color: #bbb; border-bottom-color: #bbb; background: #f6f6ec;}
+#textPage .imgLeftWrap {float: left; margin: 0 0.8em 0.8em 0; border: 1px solid #ddd; padding: 2px; border-right-color: #bbb; border-bottom-color: #bbb; background: #f6f6ec;}
+#textPage .imgRightWrap {float: right; margin: 0 0 0.8em 0.8em; border: 1px solid #ddd; padding: 2px; border-right-color: #bbb; border-bottom-color: #bbb; background: #f6f6ec;}
+#textPage .imgLeft img, #textPage .imgLeftWrap img, #textPage .imgRightWrap img {padding: 0; margin: 0;}
+#textPage .imgLeft p, #textPage .imgLeftWrap p, #textPage .imgRightWrap p {padding: 0.5em; margin-bottom: 0; color: #777; font-size: 80%;}
+
+#textPage ul {padding: 0px !important; margin: 0 0 15px 0 !important; float: none !important; position: relative !important; font-size: 12px !important; width: inherit !important; background: none !important;}
+#textPage ul li {width: inherit !important; float: none !important; position: relative !important; margin: 0px !important; width: inherit !important; padding: 0px !important; list-style-type: disc; list-style-position: inside; background: none !important; border: none !important} 
+#textPage ol {padding: 0px !important; margin: 0 0 15px 0 !important; float: none !important; position: relative !important; font-size: 12px !important; width: inherit !important; background: none !important;}
+#textPage ol li {width: inherit !important; float: none !important; position: relative !important; margin: 0px !important; width: inherit !important; padding: 0px !important; list-style-type:  decimal-leading-zero; list-style-position: inside; background: none !important; border: none !important} 
+#textPage ul ul, #textPage ol ol {margin: 0 0 0 10px !important; background: none !important;}
+#textPage ul ul li {list-style-type: square;}	
+#textPage ul ul ul li {list-style-type: circle;}	
+#textPage ol ol li {list-style-type: lower-alpha;}	
+#textPage ol ol ol li {list-style-type: lower-roman;}
+
+#textPage a {}
+#textPage a:hover {color: red; border-bottom: 1px solid red;}
+#textPage a:active {}
+
+
+/*  Button and Input button styles
+------------------------------------------------------------------------------------------------------------------*/
+
+.MBbutton {background-attachment: scroll; background-repeat: no-repeat; background-position: top left; display: block; float: left; height: 33px; padding-right: 18px; margin: 10px 15px 10px 0; font-size: 90%; cursor: pointer;}
+
+a.MBbutton {color: #4f4f4f!important}
+a.MBbutton:hover {color: #ff0000 !important}
+
+.MBbutton.history {background-image:url(../../images/layout/bgButtonHistory.png) !important; background-image:url(../../images/layout/bgButtonHistory.gif);}
+.MBbutton.arrow {background-image:url(../../images/layout/bgButtonArrow.png) !important; background-image:url(../../images/layout/bgButtonArrow.gif);}
+.MBbutton.arrowUp {background-image:url(../../images/layout/bgButtonArrowUp.png) !important; background-image:url(../../images/layout/bgButtonArrowUp.gif);}
+.MBbutton.arrowDown {background-image:url(../../images/layout/bgButtonArrowDown.png) !important; background-image:url(../../images/layout/bgButtonArrowDown.gif);}
+.MBbutton.save {background-image:url(../../images/layout/bgButtonSave.png) !important; background-image:url(../../images/layout/bgButtonSave.gif);}
+.MBbutton.tick {background-image:url(../../images/layout/bgButtonYes.png) !important; background-image:url(../../images/layout/bgButtonYes.gif);}
+.MBbutton.cross {background-image:url(../../images/layout/bgButtonNo.png) !important; background-image:url(../../images/layout/bgButtonNo.gif);}
+.addNew {margin: 0 0 0 -68px;}
+
+.MBbutton span {background: transparent url(../../images/layout/bgButtonR.png) no-repeat 100% 0% !important; background-image: url(../../images/layout/bgButtonR.gif); display: block; line-height: 23px; padding: 5px 20px 5px 38px; margin: 0 -30px 0 0; float: left;}
+
+.MBbuttonBlue {background-image: url(../../images/layout/bgButtonBlue.png) !important; background-image: url(../../images/layout/bgButtonBlue.gif); background-attachment: scroll; background-repeat: no-repeat; background-position: top left; display: block; float: left; height: 23px; padding-right: 18px; margin: 10px 15px 10px 0; font-size: 90%; cursor: pointer;}
+a.MBbuttonBlue {color: #fff !important}
+a.MBbuttonBlue:hover {color: #4f4f4f !important}
+.MBbuttonBlue span {background: transparent url(../../images/layout/bgButtonBlueR.png) no-repeat 100% 0% !important; background-image: url(../../images/layout/bgButtonBlueR.gif); display: block; line-height: 13px; padding: 5px 16px 5px 18px; margin: 0 -24px 0 0; float: left;}
+
+.MBbuttonAddNote {background-image: url(../../images/layout/bgButtonAddNoteL.png) !important; background-image: url(../../images/layout/bgButtonAddNoteL.gif);  background-attachment: scroll; background-repeat: no-repeat; background-position: top left; display: block; float: left; height: 33px; padding-right: 18px; margin: 10px 15px 10px 0; font-size: 90%; cursor: pointer;}
+a.MBbuttonAddNote {color: #fff !important; font-weight: bold;}
+a.MBbuttonAddNote:hover {color: #fa9d3a !important}
+.MBbuttonAddNote span {background: transparent url(../../images/layout/bgButtonAddNoteR.png) no-repeat 100% 0% !important; background-image: url(../../images/layout/bgButtonAddNoteR.gif); display: block; line-height: 23px; padding: 4px 20px 6px 34px; margin: 0 -31px 0 0; float: left;}
+ul.theDesign .MBbuttonAddNote {margin-top: 0px;}
+
+div.MBbuttonLogin {background-image: url(../images/bgButtonLogin.png) !important; background-image: url(../images/bgButtonLogin.gif); background-attachment: scroll; background-repeat: no-repeat; background-position: top left; display: block; float: left; height: 23px; padding-right: 18px; margin: 10px 15px 10px 0; font-size: 90%; cursor: pointer; float: right; position: relative; bottom: 27px}
+div.MBbuttonLogin input {background: transparent url(../images/bgButtonLoginR.png) no-repeat 100% 0% !important; background-image: url(../images/layout/bgButtonLoginR.gif); display: block; padding: 2px 20px 5px 38px !important; margin: 0 -30px 0 0 !important; float: left; border: none; color: #4f4f4f; height: 23px; cursor: pointer;}
+div.MBbuttonLogin input:hover {border: none; color: #ff0000}
+div.MBbuttonLogin input:focus {border: none; background-color: inherit;}
+#resetpasswordform div.MBbuttonLogin {margin: 30px 12px 0 0;}
+
+div.MBbutton input {background: transparent url(../../images/layout/bgButtonR.png) no-repeat 100% 0% !important; background-image: url(../../images/layout/bgButtonR.gif); display: block; padding: 5px 20px 5px 38px !important; margin: 0 -30px 0 0 !important; float: left; border: none; color: #4f4f4f; height: 33px; cursor: pointer;}
+div.MBbutton input:hover {border: none; color: #ff0000}
+
+div.MBbutton input:focus {border: none; background-color: inherit;}
+
+.MBbuttonSignoff {z-index: 0 !important; background-image: url(../../images/layout/bgButtonSignoffL.png) !important; background-image: url(../../images/layout/bgButtonSignoffL.gif); background-attachment: scroll; background-repeat: no-repeat; background-position: top left; display: block; float: left; height: 33px; padding-right: 18px; margin: 10px 15px 10px 0; font-size: 90%; cursor: pointer;}
+a.MBbuttonSignoff {color: #4f4f4f !important; font-weight: bold;}
+a.MBbuttonSignoff:hover {color: #ff0000 !important}
+.MBbuttonSignoff span {background: transparent url(../../images/layout/bgButtonSignoffR.png) no-repeat 100% 0% !important; background-image: url(../../images/layout/bgButtonSignoffR.gif); display: block; line-height: 23px; padding: 5px 20px 5px 38px; margin: 0 -30px 0 0; float: left;}
+
+div.MBbuttonSignoff input {z-index: 0 !important; background: transparent url(../../images/layout/bgButtonSignoffR.png) no-repeat 100% 0% !important; background-image: url(../../images/layout/bgButtonSignoffR.gif); display: block; padding: 5px 20px 5px 38px !important; margin: 0 -30px 0 0 !important; float: left; border: none; color: #4f4f4f; height: 33px; cursor: pointer;}
+div.MBbuttonSignoff input:hover {border: none; color: #ff0000}
+div.MBbuttonSignoff input:focus {border: none; background-color: inherit;}
+
+
+/* MoxBox Hover Boxes  - These are the pop-up / over boxes
+------------------------------------------------------------------------------------------------------------------*/
+
+.moxBoxSmlContainer {width: 100%; margin: 30px 0 30px -150px; position: fixed; top: 100px; left: 50%; display: none; z-index: 1000;}
+.moxBoxSml {width: 228px; padding: 20px 40px 0px 40px; background: url(../../images/layout/bgMoxBoxSmlTop.png) top left no-repeat; text-align: left;}
+.moxBoxSmlContainer .close {bottom: 0px; width: 308px; background: url(../../images/layout/bgMoxBoxSmlBot.png) bottom left no-repeat; height: 54px;}
+.moxBoxSmlContainer .closeBox {width: 13px; height: 13px; padding: 0px 0px 0px 10px;}
+.moxBoxSmlContainer .closeBox span {display: none;}
+.moxBoxSmlContainer .closeBox a {background: url(../../images/layout/iconDelete.png) top left no-repeat; width: 13px; height: 13px; margin: 5px -5px 0 0; float: right;}
+.moxBoxSmlContainer .closeBox a:hover {background-position: 0px -13px;}
+.moxBoxSmlContainer.loading img.ajaxLoader {display: block; padding: 15px 0 0 0}
+.moxBoxSmlContainer.loading .moxBoxMed {display: none !important;}
+.moxBoxSmlContainer.loading #dbox-loader {display: block !important;}
+.moxBoxSmlContainer.loading p {font-weight: bold; font-size: 80%; padding: 20px 0 0 0;}
+
+.usrInfo {text-align: left; font-size: 85%; width: 220px}
+.moxBoxSml .avatar {border-bottom: 1px solid #e3e4e4}
+.moxBoxSml .avatar img {border-right: 1px solid #e3e4e4; border-left: 1px solid #e3e4e4; border-top: 1px solid #e3e4e4; padding: 2px; background: #fff;}
+.moxBoxSml .label {font-weight: bold;}
+.moxBoxSml .name {font-weight: bold;}
+.moxBoxSml .accountType {font-size: 80%;}
+.moxBoxSml .email a {color: #48addf;}
+.moxBoxSml .email a:hover {color: #ff0000}
+.moxBoxSml .editDetails a {color: #db2424;}
+.moxBoxSml .editDetails a:hover {color: #48addf}
+
+.moxBoxSmlContainer .buttonConfirm {margin: 0 0 0 0px}
+form#deleteConfirm {margin: 10px 0 0 -12px;}
+p.deleteCancel {margin-top: 10px; font-size: 85%;}
+p.deleteCancel a {color: #4f4f4f;}
+p.deleteCancel a:hover {color: #48addf;}
+.moxBoxSmlContainer h3, .moxBoxMedContainer h3 {padding: 0 0 20px 0;}
+.deleteCancel {clear: left; text-align: }
+.moxBoxSmlContainer .MBbutton.cross {margin: 0 0 10px 5px;}
+.moxBoxSmlContainer div.MBbuttonSignoff {margin: 0 0 10px 33px;}
+.moxBoxSmlContainer.loading #dboxsml-loader {display: block !important;}
+.moxBoxSml {display: none;}
+
+a#rssfeedlink  {font-size: 75%; display: block; width: 220px !important; float: left; margin: 5px 0; color: #ff0000;}
+a:hover#rssfeedlink {color: #48addf;}
+
+#moxBoxMedError {width: 390px; float: left; position: relative; background: url(../../images/layout/bgMoxBoxMedErrorTop.png) top left no-repeat; padding: 15px 20px 5px 0; margin: -40px 0 37px 0;}
+
+#moxBoxMedError .close {width: 390px; height: 17px; background: url(../../images/layout/bgMoxBoxMedErrorBot.png) bottom left no-repeat; margin: 0 0 -22px 0;}
+#moxBoxMedError p {padding: 0px 20px 0 55px; font-size: 85%;}
+#moxBoxMedError p a {color: #000; font-weight: bold;}
+p a.closeBoxMed {color: #db2424; background: url(../../images/layout/iconNo.png) 0% 50% no-repeat; padding: 0 0 0 20px;}
+p a:hover.closeBoxMed {color: #000; background-image: url(../../images/layout/iconNoBlack.png)}
+
+.moxBoxMedContainer {width: 100%; position: absolute; top: 100px; display: none; z-index: 1000;}
+.moxBoxMed, .moxBoxMedContainer .close {display: block; margin-left: auto; margin-right: auto;}
+.moxBoxMed {width: 400px; padding: 30px 35px 0px 35px; background: url(../../images/layout/bgMoxBoxMedTop.png) top left no-repeat; text-align: left;}
+.moxBoxMedContainer .close {bottom: 0px; width: 470px; background: url(../../images/layout/bgMoxBoxMedBot.png) bottom left no-repeat; height: 97px;}
+.moxBoxMedContainer .closeBox {width: 13px; height: 13px; padding: 0px 0px 0px 10px;}
+.moxBoxMedContainer .closeBox span {display: none;}
+.moxBoxMedContainer .closeBox a {background: url(../../images/layout/iconDelete.png) top left no-repeat; width: 13px; height: 13px; margin: -0 -5px 0 0; float: right;}
+.moxBoxMedContainer .closeBox a:hover {background-position: 0px -13px;}
+
+.moxBoxMedContainer ul {padding: 10px 0;}
+.moxBoxMedContainer ul li {font-size: 90%;}
+.moxBoxMedContainer ul li.clientLoginsTitle {padding: 5px 0; font-weight: bold}
+.moxBoxMedContainer ul li a {padding: 0; color: #48addf}
+.moxBoxMedContainer ul li a:hover {padding: 0; color: #ff0000}
+.moxBoxMedContainer label {font-size: 90%;}
+.moxBoxMedContainer .buttonSave {margin: 10px 0 0 0;}
+.moxBoxMedContainer.loading img.ajaxLoader {display: block;}
+.moxBoxMedContainer.loading .moxBoxMed {display: none !important;}
+#dbox-loader {display: none;}
+.moxBoxMedContainer.loading #dbox-loader {display: block !important;}
+img.ajaxLoader {position: relative; left: 50%; margin-left: -28px; clear: both; float: left; display: none;}
+#signoffComment {width: 386px;}
+#dbox-content .clientLoginForm h3 {font-size: 130%}
+#dbox-content h3#clientLoginFormTitle {font-size: 90%}
+#dbox-content .projectAccessChk {margin: 5px 5px 0 0}
+.clientLoginForm #addNew  {position: relative; float: left; width: 120px; margin-bottom: -5px;}
+h3#clientLoginFormTitle {clear: left;}
+
+form.addNewClient {float: left; margin: 10px 0 0 0;}
+form.addNewClient label {width: 100px; float: left; position: relative;}
+form.addNewClient input {margin: 0 0 5px 0; position: relative;}
+form.addNewClient .MBbutton {clear: left;}
+
+#basecampIntegration {padding: 0 10px 0 0; position: relative;}
+#basecampIntegration h3 {}
+#basecampIntegration h4 {font-size: 90%;}
+
+#basecampIntegration .basecampProject {position: relative; width: 390px; margin: 0 0 10px 0; float: left;}
+#basecampIntegration .basecampProject .container {display: block; float: left;}
+#basecampIntegration .basecampProject .container span {float: left;}
+#basecampIntegration .basecampProject .container span.title {}
+#basecampIntegration .basecampProject .container select {float: right; right: 35px; position: absolute}
+#basecampIntegration .basecampProject .container .loading {float: right; position: absolute; right: 0px}
+
+#basecampIntegration .basecampCategory {float: left; clear: both; position: relative; padding: 0 0 20px 0; width: 390px;}
+#basecampIntegration .basecampCategory .container {display: block; float: left;}
+#basecampIntegration .basecampCategory .container span {float: left;}
+#basecampIntegration .basecampCategory .container span.title {}
+#basecampIntegration .basecampCategory .container select {float: right; right: 35px; position: absolute}
+#basecampIntegration .basecampCategory .container .loading {float: right; position: absolute; right: 0px}
+
+#basecampIntegration .basecampUsers {position: relative; width: 390px; clear: left;}
+#basecampIntegration .basecampUsers ul#bcUserList {}
+#basecampIntegration .basecampUsers ul#bcUserList li {clear: left; padding: 0 0 5px 0; display: block;}
+#basecampIntegration .basecampUsers ul#bcUserList label {float: left;}
+#basecampIntegration .basecampUsers ul#bcUserList checkbox {float: right}
+#basecampIntegration .basecampUsers ul#bcUserList input {float: right}
+
+#basecampIntegration .MBbutton {clear: both;}
+
+#addMultipleTemplatesForm .file-field { border: none; }
+
+.flash-upload-wrapper { margin-top: 10px; }
+.upload-queue-wrapper { padding: 20px 0; }
+.upload-queue {border-top: 1px solid #CCC; border-bottom: 1px solid #CCC; list-style: none; overflow: auto; margin: 0 0; padding: 10px 0pt 0pt; width: 400px;}
+.upload-queue li {clear: left; display: block; margin-bottom: 10px; overflow: hidden;}
+.upload-queue .filename {float: left; overflow: hidden; width: 130px;}
+.upload-queue .progress-container {float: left; width: 240px; height: 10px; margin-left: 10px; margin-top:2px;}
+.upload-queue .progress-container.indeterminate {background-image: url(../../images/layout/indeterminateProgress.png);}
+.upload-queue .progress-bar {background-color: #0C0; height: 100%;}
+.upload-queue .upload-message {margin-left: 140px;}
+.upload-queue .upload-message.success {color: #0C0;}
+.upload-queue .upload-message.error {color: #C00;}
+.upload-limit-notice { color: #999; font-size: 12px; font-style: italic; padding-bottom: 20px; }
+
+/* Error pages 404 etc
+------------------------------------------------------------------------------------------------------------------*/
+
+body#error {background: url(../../images/layout/bgError.png) top left repeat-x;}
+#error .error {background: url(../../images/layout/bgErrorImage.png) top left no-repeat; padding: 105px 0 0 25px; margin: 158px auto 0px auto; position: relative; width: 400px; text-align: left}
+#error h1 {color: #db2424; font-size: 120%; font-weight: lighter; padding: 0 0 10px 0;}
+#error p {font-size: 90%;}
+#error ul {position: relative; margin: 10px 0;}
+#error ul li {font-size: 90%;}
+#error ul li a {font-weight: bold; color: #000;}
+#error ul li a:hover {color: #48addf;}
+
+
+/* MoxBox image photo notes
+------------------------------------------------------------------------------------------------------------------*/
+
+/* The overall container: always has class="fn-container", and also one of: container-inactive container-active */
+
+ul.notes {display: none;}
+.fn-container {position: relative; margin-top: -15px;}
+.fn-container img {border-width: 0;}
+
+.fn-area {position: absolute; border: none; border: 0px solid #D4D82D; margin: 1px;}
+.fn-area-blackborder {border: 1px solid #000;}
+.fn-area-whiteborder {border: 1px solid #FFF;}
+.fn-area-inner {border: 0px solid #000; background-color: #fff; filter: alpha(opacity=0); -moz-opacity: 0; opacity: 0; cursor: pointer;}
+
+.fn-note {position: absolute; max-width: 250px;	padding: 5px; display: none; cursor: default; z-index:5000;}
+.fn-note-text {color: #222; background-color: #FFEECC; border: 1px solid #000000; padding: 5px; -moz-border-radius: 1px; display: block;}
+.fn-note-edit-text {background-color: #FFEECC; border: 1px solid #000000; padding: 5px;	-moz-border-radius: 1px;}
+.fn-note-edit {display:none;}
+.fn-note-edit TEXTAREA {background-color: #FFEECC; border: 0; overflow: visible; margin-bottom: 10px; padding: 0; width: 230px; min-height: 50px; font-size: 10pt; margin:0;}
+
+
+.Butt {font: bold 12px Arial, Helvetica, sans-serif; color: #FFFFFF; background: #0063DC; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #7CBAFF; border-right-color: #2854A7; border-bottom-color: #2854A7; border-left-color: #7CBAFF; margin-right: 4px; margin-top: 5px; cursor: pointer;}
+.CancelButt {color: #000000; background: #d9d9d5; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; order-bottom-style: solid; border-left-style: solid; border-top-color: #fff; border-right-color: #b6aeb3; border-bottom-color: #b6aeb3; border-left-color: #fff; font: 12px Arial, Helvetica, sans-serif; margin-right: 4 px; cursor: pointer;}
+.DeleteButt { color: #000000; background: #DCE0E6; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #F5F6F7; border-right-color: #BFB7BC; border-bottom-color: #BFB7BC; border-left-color: #F5F6F7; font: 12px Arial, Helvetica, sans-serif; cursor: pointer;}
+.Butt:focus {color: #000;}	
+
+/* Note drag/resize UI */
+
+.dragresize {position: absolute; width: 5px; height: 5px; font-size: 1px; background: white; border: 1px solid black;}
+.dragresize-tl {top: -8px; left: -8px; cursor: nw-resize;}
+.dragresize-tm {top: -8px; left: 50%; margin-left: -4px; cursor: n-resize;}
+.dragresize-tr {top: -8px; right: -8px; cursor: ne-resize;}
+
+.dragresize-ml {top: 50%; margin-top: -4px; left: -8px; cursor: w-resize;}
+.dragresize-mr {top: 50%; margin-top: -4px; right: -8px; cursor: e-resize;}
+
+.dragresize-bl {bottom: -8px; left: -8px; cursor: sw-resize;}
+.dragresize-bm {bottom: -8px; left: 50%; margin-left: -4px; cursor: s-resize;}
+.dragresize-br {bottom: -8px; right: -8px; cursor: se-resize;}
+
+.addNote {border: none !important; padding: 0px; margin: 0; cursor: pointer;}

@@ -1,0 +1,43 @@
+<navigation id="KoolPivotTable" title="PHP Pivot Table Demo">
+	<category id="root">
+		<link id="overview" text="Overview" link="index.php" />
+		<category id="Firstlook" text="First Look">
+			<link 	id="TheFirstlook" 
+					text="First Look"
+					link="Firstlook/Firstlook/index.php" 
+					new="false"/>
+		</category>
+		<category id="Features" text="Features">
+			<link 	id="Reorder" 
+					text="Reorder"
+					link="Features/Reorder/index.php" 
+					new="false"/>
+			<link 	id="Scrolling" 
+					text="Scrolling"
+					link="Features/Scrolling/index.php" 
+					new="false"/>
+			<link 	id="Sorting" 
+					text="Sorting"
+					link="Features/Sorting/index.php" 
+					new="false"/>
+			
+			<link 	id="SortingData" 
+					text="Sorting Data"
+					link="Features/SortingData/index.php" 
+					new="true"/>
+			
+			<link 	id="Export" 
+					text="Export"
+					link="Features/Export/index.php" 
+					new="true"/>
+			
+			
+			<link 	id="Localization" 
+					text="Localization"
+					link="Features/Localization/index.php" 
+					new="false"/>
+
+		</category>
+
+	</category>
+</navigation>

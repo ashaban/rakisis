@@ -1,0 +1,1 @@
+<center><h2><a href="#" style="font-size:31">Rafiki Kilimo Sales And Inventory System</a></h2><font style="font-size:25;color:white;letter-spacing:10px;font-family: "Times New Roman", Times, serif;"><i>RAKISIS</i></font><img src="images/sprayer.png" height="90" style="position:relative;margin-left:880;bottom:85"></center>
