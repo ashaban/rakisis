@@ -19,6 +19,7 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
+    document.getElementById("empl_btn").disabled = false;
     document.getElementById("info").innerHTML="<font color='red'><img src='images/information.jpg' width='30' height='30'>"+xmlhttp.responseText+"</font>";
     document.getElementById("errmsg").innerHTML="";
     document.hire.fname.value="";
@@ -38,35 +39,44 @@ xmlhttp.send();
 }
 
 function verify_data() {
+document.getElementById("empl_btn").disabled = true;
 	if(document.hire.fname.value=="") {
+		document.getElementById("empl_btn").disabled = false;
 		document.getElementById("errmsg").innerHTML="<font color='red'><b>Jina La Kwanza La Mtumishi Halijajazwa</b></font>";
 		return false;
 		}
 	if(document.hire.surname.value=="") {
+		document.getElementById("empl_btn").disabled = false;
 		document.getElementById("errmsg").innerHTML="<font color='red'><b>Jina La Mwishoa Halijajazwa</b></font>";
 		return false;
 		}
 	if(document.hire.salary.value=="") {
+		document.getElementById("empl_btn").disabled = false;
 		document.getElementById("errmsg").innerHTML="<font color='red'><b>Mshahara Haujajazwa</b></font>";
 		return false;
 		}
 	if(document.hire.designation.value=="-1") {
+		document.getElementById("empl_btn").disabled = false;
 		document.getElementById("errmsg").innerHTML="<font color='red'><b>Cheo Cha Mtumishi Hakijachaguliwa</b></font>";
 		return false;
 		}
 	if(document.hire.ephone.value=="") {
+		document.getElementById("empl_btn").disabled = false;
 		document.getElementById("errmsg").innerHTML="<font color='red'><b>Simu Ya Mtumishi Haijajazwa</b></font>";
 		return false;
 		}
 	if(document.hire.emergency_phone.value=="") {
+		document.getElementById("empl_btn").disabled = false;
 		document.getElementById("errmsg").innerHTML="<font color='red'><b>Simu Ya Mtu Wa Kuwasiliana Nae Panapodharula Haijajazwa</b></font>";
 		return false;
 		}
 	if(document.hire.emergency_name.value=="") {
+		document.getElementById("empl_btn").disabled = false;
 		document.getElementById("errmsg").innerHTML="<font color='red'><b>Jina La Mtu Wakuwasiliana Nae Panapo Dharula Halijajazwa</b></font>";
 		return false;
 		}
 	if(isNaN(document.hire.salary.value)) {
+		document.getElementById("empl_btn").disabled = false;
 		document.getElementById("errmsg").innerHTML="<font color='red'><b>Mshahara Lazima Uwe Namba</b></font>";
 		return false;
 		}
@@ -134,7 +144,7 @@ while($row=mysql_fetch_array($results)) {
 <tr style='background-color:#BCC6CC;'><td align="right">Jina La Mtu Wa Kuwasiliana Nae Ikitokea Dharula<font style="color:red">*</font></td><td><input type="text" name="emergency_name" size="30"></td></tr>
 <tr style='background-color:#C0C0C0;'><td align="right">Mahusiano Na Mtu Wa Kuwasiliana Nae Ikitokea Dharula</td><td><input type="text" name="emergency_relation"></td></tr>
 <tr style='background-color:#BCC6CC;'><td align="right">Namba Ya Simu Ya Mtu Wa Kuwasiliana Nae Ikitokea Dharula<font style="color:red">*</font></td><td><input type="text" name="emergency_phone"></td></tr>
-<tr style='background-color:#C0C0C0;'><td colspan="2" align="center"><input type="button" onclick="verify_data()" value="Ajiri"></td></tr>
+<tr style='background-color:#C0C0C0;'><td colspan="2" align="center"><input type="button" id='empl_btn' onclick="verify_data()" value="Ajiri"></td></tr>
 </table>
 </form>
 				</center>

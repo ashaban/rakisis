@@ -58,6 +58,7 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
+    document.getElementById("deb_cred_btn").disabled = false;
     document.getElementById("info").innerHTML="<font color='red'><img src='images/information.jpg' width='30' height='30'>"+xmlhttp.responseText+"</font>";
     document.getElementById("errmsg").innerHTML=""
     document.debts.customer_id.value="";
@@ -78,25 +79,30 @@ xmlhttp.send();
 
 function check()
 {
+document.getElementById("deb_cred_btn").disabled = true;
 if (document.debts.debit_credit.value=="-1") {
+	document.getElementById("deb_cred_btn").disabled = false;
 	document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:Select If This Is The Debit/Credit</font></b>";
 	return false;	
 	}
 
 else if (document.debts.customer_id.value=="")
 {
+document.getElementById("deb_cred_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:You Must Enter The Full Name</font></b>";
 return false;
 }
 
 else if (document.debts.amount.value=="")
 {
+document.getElementById("deb_cred_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:You Must Enter The Amount Of Money</font></b>";
 return false;
 }
 
 else if(isNaN (document.debts.amount.value-0))
 {
+document.getElementById("deb_cred_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:Amount Must Be A Number With No Comma</font></b>";
 return false;
 }
@@ -155,7 +161,7 @@ include ("includes/menu.php");
 	<tr style='background-color:#C0C0C0;'><td align="right">Description</td><td><textarea name="descr"></textarea></td></tr>
 	<tr style='background-color:#BCC6CC;'><td align="right">Debt/Credit</td><td><select name="debit_credit" id="debit_credit"><option value="-1">---Select---</option><option value="debit">Debit</option><option value="credit">Credit</option></select></td></tr>
 	<tr style='background-color:#C0C0C0;'><td align="right">Date Of Debt</td><td><script>DateInput('date', true, 'YYYY-MM-DD')</script></td></tr>
-	<tr style='background-color:#BCC6CC;'><td>&nbsp;</td><td align="left"><input type="button" name="submit" value="Save" onclick="check()"></td></tr>
+	<tr style='background-color:#BCC6CC;'><td>&nbsp;</td><td align="left"><input type="button" name="submit" id='deb_cred_btn' value="Save" onclick="check()"></td></tr>
 	</table>
 	</form>
 				</center>

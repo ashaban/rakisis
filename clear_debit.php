@@ -31,8 +31,10 @@ xmlhttp.send();
 
 function check(id)
 {
+document.getElementById("clr_deb_cred_btn").disabled = true;
 if (isNaN (document.getElementById(id).value-0))
 {
+document.getElementById("clr_deb_cred_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:Amount To Be Paid Must Be A Number</font></b>";
 return false;
 exit;
@@ -59,6 +61,7 @@ xmlhttp.onreadystatechange=function()
     }
     else
     {
+    document.getElementById("clr_deb_cred_btn").disabled = false;
     document.getElementById("errmsg").innerHTML=xmlhttp.responseText;
     return false;
     }
@@ -87,6 +90,7 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
+    document.getElementById("clr_deb_cred_btn").disabled = false;
     document.getElementById("info").innerHTML="<font color='red'><img src='images/information.jpg' width='30' height='30'>"+xmlhttp.responseText+"</font>";
     showDebtInfo(document.form.namesPool.value);    
     }

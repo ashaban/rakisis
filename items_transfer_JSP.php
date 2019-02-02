@@ -28,7 +28,7 @@
 		echo "<tr><td colspan='5' align='center'><br><b>Ingiza Idadi Ya Pieces Kuhamishia Kwenda Tawi Jingine (Batch $id Ya $itemname $unit_name $total_units )</b></td></tr>";
 		echo "<input type='hidden' name='quantity_available' value='$available'>";
 		echo "<tr style='background-color:#515151;color:white;font-family:Georgia, 'Times New Roman', Times, serif;font-weight:bold;font-size:14;'><th>Jina La Bidhaa</th><th>Piece Zilizopo</th><th>Bei Iliyonunuliwa Kwa Piece</th><th>Expire Date</th><th>Idadi Ya Kuhamisha</th></tr>";
-		echo "<tr style='$bgcolor'><td align='center'>$itemname</td><td align='center'>$available</td><td align='center'>".number_format($price)."</td><td>$exp_date</td><td><input type='text' name='quantity_transfer'></td><td><input type='button' name='transfer' value='Hamisha' onclick='return validate_transfer()'></td></tr>";
+		echo "<tr style='$bgcolor'><td align='center'>$itemname</td><td align='center'>$available</td><td align='center'>".number_format($price)."</td><td>$exp_date</td><td><input type='text' name='quantity_transfer'></td><td><input type='button' id='transfer_btn' name='transfer' value='Hamisha' onclick='return validate_transfer()'></td></tr>";
 		}
 		
 	else if($_REQUEST["from"]=="make_transfer") {

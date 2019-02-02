@@ -70,6 +70,14 @@ include ("includes/menu.php");
 			    'required'=>  array('error','Weka Username'),
 
 			    		    ));
+			$form->add("label","label_role","role","Role");
+			$obj= & $form->add("select","role");
+			$array = array("admin" => "Admin","sales" => "Sales","data_manager" => "Data Manager");
+			$obj->add_options($array);
+                        $obj->set_rule(array(
+                            'required'=>  array('error','Chagua role'),
+
+                                            ));
 
 			$form->add("label","label_branch","branch","Aina Ya Tawi");
 			$obj= & $form->add("select","branch");
@@ -101,7 +109,7 @@ $form = displayForm();
 if ($form->validate())
 {
 	$passwd=md5($_REQUEST["passwd"]);
-if (mysql_query("insert into users (fname,lname,mname,passwd,uname,branch) values ('$_REQUEST[fname]','$_REQUEST[sname]','$_REQUEST[mname]','$passwd','$_REQUEST[uname]','$_REQUEST[branch]')")){
+if (mysql_query("insert into users (fname,lname,mname,passwd,uname,branch,role) values ('$_REQUEST[fname]','$_REQUEST[sname]','$_REQUEST[mname]','$passwd','$_REQUEST[uname]','$_REQUEST[branch]','$_REQUEST[role]')")){
 	echo "<center><b>Mtumiaji kasajiliwa kikamilifu</b></center>";
 	$form = displayForm();
 }

@@ -24,12 +24,13 @@ ob_start();
 		include("includes/connection.php");
 	$username=$_POST["uname"];
 	$password=md5($_POST["passwd"]);
-	$checkuser=mysql_query("select id,fname,mname,lname from users where uname='$username' and passwd='$password'") or die(mysql_error());	
+	$checkuser=mysql_query("select id,fname,mname,lname,role from users where uname='$username' and passwd='$password'") or die(mysql_error());	
 	if(mysql_num_rows($checkuser)==1)
 	{
-	list($id,$fname,$mname,$lname)=mysql_fetch_array($checkuser);
+	list($id,$fname,$mname,$lname,$role)=mysql_fetch_array($checkuser);
 	$_SESSION["id"]=$id;
 	$_SESSION["name"]=$fname." ". $mname." ". $lname;
+	$_SESSION["role"] = $role;
 	header("location:frontpage.php");
         ob_end_flush();
 	}

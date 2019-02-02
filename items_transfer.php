@@ -52,11 +52,13 @@ function show_batch_descriptions(id) {
 	
 	function make_transfer() {
 		if (window.XMLHttpRequest)
-		  {// code for IE7+, Firefox, Chrome, Opera, Safari	
+		  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	
 		  xmlhttp=new XMLHttpRequest();
 		  }
 		else
-		  {// code for IE6, IE5	
+		  {// code for IE6, IE5
+	
 		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 		  }
 		xmlhttp.onreadystatechange=function()
@@ -78,23 +80,28 @@ function show_batch_descriptions(id) {
 	}	
 	
 	function validate_transfer() {
+		document.getElementById("transfer_btn").disabled = true;
 		var quantity_available=document.transfer.quantity_available.value;
 		var quantity_transfer=document.transfer.quantity_transfer.value;
 		var branch=document.transfer.branch.value;
 		document.getElementById("infomsg").innerHTML="";
 		if(branch=="-1") {
+			document.getElementById("transfer_btn").disabled = false;
 			document.getElementById("errmsg").innerHTML="Chagua Tawi La Kuhamishia Mzigo";
 			return false;			
 			}
 		if(isNaN(quantity_transfer)) {
+			document.getElementById("transfer_btn").disabled = false;
 			document.getElementById("errmsg").innerHTML="Idadi Ya Kuhamisha Lazima Iwe Namba";
 			return false;
 			}
 		else if(parseInt (quantity_transfer) > parseInt(quantity_available)) {
+			document.getElementById("transfer_btn").disabled = false;
 			document.getElementById("errmsg").innerHTML="Idadi Ya Kuhamisha Imezidi Idadi Iliyopo";
 			return false;
 			}
 		else if(quantity_transfer=="") {
+			document.getElementById("transfer_btn").disabled = false;
 			document.getElementById("errmsg").innerHTML="Idadi Ya Kuhamisha Lazima Ijazwe";
 			return false;
 			}

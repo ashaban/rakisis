@@ -69,7 +69,7 @@ if(count($allarrays)>0)
 {
 echo "<tr style='background-color:#515151;color:white;font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:15;'><td colspan='11' align='center'><b>Jumla Ya Fedha=".number_format($totalAmount)."</b></td></tr>";
 $_SESSION["allarrays"]=$allarrays;
-echo "<tr style='background-color:#C0C0C0;'><td colspan='7' align='center'>Namna Ya Malipo<font style='color:red'>*</font><select name='mode' onchange='check_pay_mode(this.value)'><option value='full'>Pesa Yote Inalipwa</option><option value='advance'>Baadhi Ya Pesa Inatangulizwa</option></select><span id='advance_amount'><span></td><td colspan='4' align='right'><input type='button' name='sale' value='Uza' onclick='check_customer_selection()'></td></tr>";
+echo "<tr style='background-color:#C0C0C0;'><td colspan='7' align='center'>Namna Ya Malipo<font style='color:red'>*</font><select name='mode' onchange='check_pay_mode(this.value)'><option value='full'>Pesa Yote Inalipwa</option><option value='advance'>Baadhi Ya Pesa Inatangulizwa</option></select><span id='advance_amount'><span></td><td colspan='4' align='right'><input type='button' id='sale_btn' name='sale' value='Uza' onclick='check_customer_selection()'></td></tr>";
 echo "</table>";
 }
 

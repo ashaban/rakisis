@@ -18,10 +18,12 @@ document.getElementById("others").innerHTML="";
 
 function check()
 {
+document.getElementById("add_exp_btn").disabled = true;
 if (document.expenditure.names.value=="Others")
 {
 if (document.expenditure.others.value=="")
 {
+document.getElementById("add_exp_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:Expenditure Type Must Be Defined</font></b>";
 return false;
 }
@@ -29,18 +31,21 @@ return false;
 
 else if (document.expenditure.names.value==-1)
 {
+document.getElementById("add_exp_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:Expenditure Type Must Be Selected</font></b>";
 return false;
 }
 
 else if (document.expenditure.amount.value=="")
 {
+document.getElementById("add_exp_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:Amount Must Be Filled</font></b>";
 return false;
 }
 
 else if(isNaN (document.expenditure.amount.value-0))
 {
+document.getElementById("add_exp_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:Amount Must Be A Number</font></b>";
 return false;
 }
@@ -129,7 +134,7 @@ echo "<option value='$row[id]'>$row[type]</option>";
 
 	<tr><td align="right">Maelezo Ya Matumizi</td><td><textarea rows="5" cols='20' name="description"></textarea></td></tr>
 	<tr><td align="right">Kiasi</td><td><input type="text" name="amount">Date Bought</td><td><script>DateInput('date', true, 'YYYY-MM-DD')</script></td></tr>	
-	<tr><td colspan="2" align="right"><input type="submit" name="submit" value="Add Expenditure" onclick="return check()"></td></tr>
+	<tr><td colspan="2" align="right"><input type="submit" name="submit" id='add_exp_btn' value="Add Expenditure" onclick="return check()"></td></tr>
 	</table>
 	</form>	
 	<?php

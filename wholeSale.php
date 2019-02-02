@@ -27,7 +27,7 @@ xmlhttp.onreadystatechange=function()
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
     document.getElementById("batch").innerHTML=xmlhttp.responseText;  
-    document.getElementById("button").innerHTML="<input type='button' name='que' value='Ongeza Kwenye Foleni Ya Mauzo' onclick='check_date_validity()'>";  
+    document.getElementById("button").innerHTML="<input type='button' id='sale_que_btn' name='que' value='Ongeza Kwenye Foleni Ya Mauzo' onclick='check_date_validity()'>";  
     showDescr(document.sale.batch.value);
     }
   }
@@ -119,6 +119,7 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
+    document.getElementById("sale_que_btn").disabled = false;
     document.getElementById("errmsg").innerHTML=xmlhttp.responseText;
     if (xmlhttp.responseText=="")
     addQue();    
@@ -130,6 +131,7 @@ xmlhttp.send();
 }
 
 function check_customer_selection() {
+	document.getElementById("sale_btn").disabled = true;
 	if (window.XMLHttpRequest)
 	  {// code for IE7+, Firefox, Chrome, Opera, Safari
 	  xmlhttp=new XMLHttpRequest();
@@ -144,6 +146,7 @@ function check_customer_selection() {
 	    {
 		 var str=xmlhttp.responseText;		 
 		 if (str.substr(0,9)=="Hakikisha") {
+	    document.getElementById("sale_btn").disabled = false;
 	    document.getElementById("errmsg").innerHTML=xmlhttp.responseText;
 	    exit;
 	    }
@@ -180,6 +183,7 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {    
+    document.getElementById("sale_btn").disabled = false;
     document.getElementById("errmsg").innerHTML=xmlhttp.responseText;
     display_items_lists()
     document.getElementById("que").innerHTML="";
@@ -290,6 +294,7 @@ document.getElementById("input").innerHTML="";
 
 function check_date_validity()
 {
+document.getElementById("sale_que_btn").disabled = true;
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
   xmlhttp=new XMLHttpRequest();
@@ -302,8 +307,10 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
-    if(xmlhttp.responseText=="Invalid Sale")
-    document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:This Stock Didnt Exist During This Sale,Invalid Sale Date</font></b>";
+    if(xmlhttp.responseText=="Invalid Sale") {
+	document.getElementById("sale_que_btn").disabled = false;
+    	document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:This Stock Didnt Exist During This Sale,Invalid Sale Date</font></b>";
+    }
     else
     check();
     }
@@ -318,18 +325,21 @@ function check()
 {
 if (document.sale.quantity.value=="")
 {
+document.getElementById("sale_que_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:Number Of Cartons Must Be Filled</font></b>";
 return true;
 }
 
 else if (document.sale.salePrice.value=="")
 {
+document.getElementById("sale_que_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:Sale Price Must Be Filled</font></b>";
 return true;
 }
 
 else if(isNaN (document.sale.quantity.value))
 {
+document.getElementById("sale_que_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:Quantity Must Be A Number</font></b>";
 return true;
 }
@@ -338,11 +348,13 @@ else if (document.sale.salePrice.value=="diff")
 {
 if (isNaN (document.sale.diffPrice.value-0))
 {
+document.getElementById("sale_que_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:Sale Price Must Be A Number With No Separator</font></b>";
 return true;
 }
 else if (document.sale.diffPrice.value=="")
 {
+document.getElementById("sale_que_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:Sale Price Must Be Filled</font></b>";
 return true;
 }

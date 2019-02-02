@@ -35,7 +35,7 @@ $cleared=number_format($row["amount_paid"]);
 $total_amount=number_format($total_amount);
 list($customer_name)=mysql_fetch_array(mysql_query("select name from customers where id='$row[customer_id]'"));
 list($item_name)=mysql_fetch_array(mysql_query("select name from items where id='$row[itemId]'"));
-echo "<tr style='background-color:#A5E5E5;font-family:Geneva, Arial, Helvetica, sans-serif'><td align='center'>$customer_name</td><td align='center'>$item_name</td><td align='center'>$total_amount</td><td align='center'>$cleared</td><td align='center'>$remainder</td><td align='center'>$date</td><td align='center'><input type='text' name='amount_cleared[$row[sales_id]]' id='$row[sales_id]'></td><td align='center'><input type='button' name='submit' value='Lipia' onclick='return check($row[sales_id])'></td></tr>";
+echo "<tr style='background-color:#A5E5E5;font-family:Geneva, Arial, Helvetica, sans-serif'><td align='center'>$customer_name</td><td align='center'>$item_name</td><td align='center'>$total_amount</td><td align='center'>$cleared</td><td align='center'>$remainder</td><td align='center'>$date</td><td align='center'><input type='text' name='amount_cleared[$row[sales_id]]' id='$row[sales_id]'></td><td align='center'><input type='button' name='submit' id='clear_debt_btn' value='Lipia' onclick='return check($row[sales_id])'></td></tr>";
 
 echo "<input type='hidden' name='id' value='$row[id]'>";
 }

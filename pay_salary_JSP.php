@@ -27,7 +27,7 @@ echo "<table><tr><td colspan='8' align='center'><h3>MALIPO YA MSHAHARA KWA MWEZI
 			$last_month="No salary";
 			}
 		list($designation)=mysql_fetch_array(mysql_query("select name from designation where id='$row[designation]'"));
-	echo "<tr style='$bgcolor'><td>$count</td><td>$row[firstname] $row[middlename] $row[surname]</td><td>$designation</td><td>".number_format($row["salary"])."</td><td>$last_month $last_year</td></td><td><input type='text' name='deduct[$row[id]]' id='deduct_$row[id]'></td><td><input type='text' name='deduct_reason[$row[id]]' id='deduct_reason_$row[id]'></td><td><input type='button' name='submit' value='Lipa' onclick='return check($row[id])'></td></tr>";
+	echo "<tr style='$bgcolor'><td>$count</td><td>$row[firstname] $row[middlename] $row[surname]</td><td>$designation</td><td>".number_format($row["salary"])."</td><td>$last_month $last_year</td></td><td><input type='text' name='deduct[$row[id]]' id='deduct_$row[id]'></td><td><input type='text' name='deduct_reason[$row[id]]' id='deduct_reason_$row[id]'></td><td><input type='button' id='pay_sal_btn' name='submit' value='Lipa' onclick='return check($row[id])'></td></tr>";
 	}
 }
 }

@@ -34,8 +34,10 @@ xmlhttp.send();
 
 function check(id)
 {
+document.getElementById("pay_sal_btn").disabled = true;
 if ((document.getElementById("deduct_"+id).value!="") && isNaN (document.getElementById("deduct_"+id).value-0))
 {
+document.getElementById("pay_sal_btn").disabled = false;
 document.getElementById("errmsg").innerHTML="<b><font color='red'>Error:Kiasi Cha Kupunguzwa Lazima Kiwe Namba</font></b>";
 return false;
 exit;
@@ -63,8 +65,10 @@ xmlhttp.onreadystatechange=function()
     else
     {
     if(xmlhttp.responseText.substr(0,11)=="Mshahara Wa") {
-    	if(!confirm(xmlhttp.responseText))
-    	exit;
+    	if(!confirm(xmlhttp.responseText)) {
+		document.getElementById("pay_sal_btn").disabled = false;
+    		exit;
+        }
     	else
     	submit(id);
     	}
@@ -99,6 +103,7 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
+    document.getElementById("pay_sal_btn").disabled = false;
     document.getElementById("info").innerHTML="<font color='red'><img src='images/information.jpg' width='30' height='30'>"+xmlhttp.responseText+"</font>";
     search_employees(document.pay_salary.search_name.value);    
     }

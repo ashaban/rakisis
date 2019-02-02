@@ -36,7 +36,7 @@ $remainder=$row["amount"]-$row["paid"];
 $remainder=number_format($remainder);
 $cleared=number_format($row["paid"]);
 list($customer_name)=mysql_fetch_array(mysql_query("select name from customers where id='$row[customer_id]'"));
-echo "<tr style='background-color:#A5E5E5;font-family:Geneva, Arial, Helvetica, sans-serif'><td>$customer_name</td><td>".number_format($row["amount"])."</td><td>$cleared</td><td>$remainder</td></td><td>$date</td><td>$row[description]</td><td><input type='text' name='amount_cleared[$row[id]]' id='$row[id]'></td><td><input type='button' name='submit' value='Lipa' onclick='return check($row[id])'></td></tr>";
+echo "<tr style='background-color:#A5E5E5;font-family:Geneva, Arial, Helvetica, sans-serif'><td>$customer_name</td><td>".number_format($row["amount"])."</td><td>$cleared</td><td>$remainder</td></td><td>$date</td><td>$row[description]</td><td><input type='text' name='amount_cleared[$row[id]]' id='$row[id]'></td><td><input type='button' id='clr_cred_btn' name='submit' value='Lipa' onclick='return check($row[id])'></td></tr>";
 
 echo "<input type='hidden' name='id' value='$row[id]'>";
 }

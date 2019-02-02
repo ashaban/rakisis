@@ -52,6 +52,7 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {    	
+		document.getElementById("add_stock_btn").disabled = false;
 		document.getElementById("infomsg").innerHTML=xmlhttp.responseText;
 		document.getElementById("errmsg").innerHTML="";
 		document.getElementById("item_name").selectedIndex=0;
@@ -73,21 +74,26 @@ xmlhttp.send();
 }
 
 function verify() {	
+	document.getElementById("add_stock_btn").disabled = true;
 	if(document.getElementById("diffPrice")!=null) {
 		if(document.getElementById("diffPrice").value=="" || document.getElementById("diffPrice").value=="Bei Mpya") {
+			document.getElementById("add_stock_btn").disabled = false;
 			document.getElementById("errmsg").innerHTML="<font style='color:red'><b><center>Lazima Uweke Bei Yakununulia</center></b></font>";
 			return false;	
 			}
 		}
 	if(document.whole_stock.quantity.value=="") {
+		document.getElementById("add_stock_btn").disabled = false;
 		document.getElementById("errmsg").innerHTML="<font style='color:red'><b><center>Idadi Ya Box Lazima Iwekwe</center></b></font>";
 		return false;
 		}
 	if(isNaN(document.whole_stock.quantity.value)) {
+		document.getElementById("add_stock_btn").disabled = false;
 		document.getElementById("errmsg").innerHTML="<font style='color:red'><b><center>Idadi Ya Box Lazima Iwe Namba</center></b></font>";
 		return false;
 		}
 	if(document.whole_stock.item_name.value=="-1") {
+		document.getElementById("add_stock_btn").disabled = false;
 		document.getElementById("errmsg").innerHTML="<font style='color:red'><b><center>Chagua Jina La Bidhaa</center></b></font>";
 		return false;
 		}	
@@ -164,7 +170,7 @@ echo "<option value='$row[id]'>$row[name] $unit_name $total_units</option>";
 	<tr style='background-color:#C0C0C0;'><td align="right">Batch Number</td><td><input type="text" readonly="true" name="batch" value="<?php echo 'Batch '.$batch;?>"></td></tr>	
 	<tr style='background-color:#BCC6CC;'><td align="right">Expire Date</td><td><script>DateInput('exp_date', true, 'YYYY-MM-DD')</script></td></tr>		
 	<tr style='background-color:#C0C0C0;'><td>Tarehe Ya Kuingiza Mzigo</td><td><script>DateInput('date_stocked', true, 'YYYY-MM-DD')</script></td></tr>	
-	<tr style='background-color:#BCC6CC;'><td colspan="2" align="center"><input type="button" name="submit" onclick='return verify()' value="Ingiza Mzigo Stock"></td></tr>
+	<tr style='background-color:#BCC6CC;'><td colspan="2" align="center"><input type="button" id="add_stock_btn" name="submit" onclick='return verify()' value="Ingiza Mzigo Stock"></td></tr>
 	</table>
 	</form>
 				</center>

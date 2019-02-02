@@ -25,7 +25,7 @@
 		echo "<tr><td colspan='5' align='center'><br><b>Ingiza Idadi Ya Pieces Kuhamishia Kwenye Stock Ya Reja Reja (Batch $id Ya $itemname)</b></td></tr>";
 		echo "<input type='hidden' name='quantity_available' value='$available'>";
 		echo "<tr style='background-color:#515151;color:white;font-family:Georgia, 'Times New Roman', Times, serif;font-weight:bold;font-size:14;'><th>Jina La Bidhaa</th><th>Pieces Zilizopo</th><th>Bei Iliyonunuliwa Kwa Piece</th><th>Expire Date</th><th>Idadi Ya Piece Za Kuhamisha</th></tr>";
-		echo "<tr style='$bgcolor'><td align='center'>$itemname</td><td align='center'>$available</td><td align='center'>".number_format($price)."</td><td>$exp_date</td><td><input type='text' name='quantity_transfer' onkeyup='show_units(this.value)'><label id='units_$batch_id'></label></td><td><input type='button' name='transfer' value='Hamisha' onclick='return validate_transfer()'></td></tr>";
+		echo "<tr style='$bgcolor'><td align='center'>$itemname</td><td align='center'>$available</td><td align='center'>".number_format($price)."</td><td>$exp_date</td><td><input type='text' name='quantity_transfer' onkeyup='show_units(this.value)'><label id='units_$batch_id'></label></td><td><input type='button' name='transfer' id='transfer_btn' value='Hamisha' onclick='return validate_transfer()'></td></tr>";
 		echo "<input type='hidden' name='total_units_$batch_id' id='total_units_$batch_id' value='$total_units'><input type='hidden' name='unit_$batch_id' id='unit_$batch_id' value='$unit'>";
 		}
 		

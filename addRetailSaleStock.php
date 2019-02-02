@@ -65,6 +65,7 @@ function show_batch_descriptions(id) {
 		  {
 		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		    {
+		    document.getElementById("transfer_btn").disabled = false;
 		    document.getElementById("infomsg").innerHTML="<font style='color:red'><img src='images/information.jpg' width='30' height='30'>Bidhaa Zimehamishwa Kikamilifu</font>";
 		    document.getElementById("errmsg").innerHTML="";
 		     show_batch_descriptions(document.transfer.batch.value);
@@ -80,22 +81,27 @@ function show_batch_descriptions(id) {
 	}
 	
 	function validate_transfer() {
+		document.getElementById("transfer_btn").disabled = true;
 		var quantity_available=document.transfer.quantity_available.value;
 		var quantity_transfer=document.transfer.quantity_transfer.value;
 		document.getElementById("infomsg").innerHTML="";
 		if(isNaN(quantity_transfer)) {
+			document.getElementById("transfer_btn").disabled = false;
 			document.getElementById("errmsg").innerHTML="Idadi Ya Kuhamisha Lazima Iwe Namba";
 			return false;
 			}
 		else if(parseInt (quantity_transfer) > parseInt(quantity_available)) {
+			document.getElementById("transfer_btn").disabled = false;
 			document.getElementById("errmsg").innerHTML="Idadi Ya Kuhamisha Imezidi Idadi Iliyopo";
 			return false;
 			}
 		else if(quantity_transfer=="") {
+			document.getElementById("transfer_btn").disabled = false;
 			document.getElementById("errmsg").innerHTML="Idadi Ya Kuhamisha Lazima Ijazwe";
 			return false;
 			}
 		else if(document.transfer.branch.value=="-1") {
+			document.getElementById("transfer_btn").disabled = false;
 			document.getElementById("errmsg").innerHTML="Chagua Tawi La Kuhamishia Mzigo";
 			return false;			
 			}
